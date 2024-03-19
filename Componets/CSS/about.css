@@ -1,0 +1,45 @@
+
+
+.wrapper{
+    background: #fff;
+    max-width: 100%;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-section{
+    display: flex;
+}
+
+.about-img{
+    width: 40%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+p{
+    margin: 10px;
+}
+.abt-button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 12px;
+    background: #1da1f2;
+    margin: 25px 20px 0 0;
+    color: white;
+    border-radius: 6px;
+}
+button:hover{
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+}
+

@@ -105,7 +105,7 @@ font-weight: bold;
             <a class="nav-link <?php if ($currentPage == "home") echo 'active'; ?>" aria-current="page" href="home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php if ($currentPage == "contact") echo 'active'; ?>" aria-current="page" href="contact.php">Contact Us</a>
+            <a class="nav-link <?php if ($currentPage == "contact") echo 'active'; ?>" aria-current="page" href="contactus.php">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link <?php if ($currentPage == "about") echo 'active'; ?>" aria-current="page" href="about.php">About</a>
@@ -224,13 +224,12 @@ font-weight: bold;
             </ul>
         </div>
         <div class="col-md-1">
-            <h5>Projects</h5>
+            <h5>Information</h5>
             <ul class="list-unstyled">
-                <li><a href="#">Bootstrap 5</a></li>
-                <li><a href="#">Bootstrap 4</a></li>
-                <li><a href="#">Icons</a></li>
-                <li><a href="#">RFS</a></li>
-                <li><a href="#">npm starter</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contactus.php">Contact Us</a></li>
+                <li><a href="team.php">Our Team</a></li>
+                
             </ul>
         </div>
         <div class="col-md-1">
@@ -247,7 +246,7 @@ font-weight: bold;
 </footer>
 
 
-
+<?php include ("footer.php");  ?>
 
 
 </html>

@@ -1,0 +1,59 @@
+#footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center; /* Center align the content */
+}
+
+.extra-links {
+    display: inline-block; /* Make sure the links are displayed inline */
+}
+
+.extra-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.extra-links ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.extra-links ul li:last-child {
+    margin-right: 0;
+}
+
+.social-btn {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    margin: 0 10px; /* Add margin to the buttons for spacing */
+}
+
+.social-btn img {
+    width: 30px;
+    height: 30px;
+    left: 200px;
+}
+
+hr {
+    margin-top: 10px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .extra-links ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .social-btn {
+        display: block;
+        margin: 0 auto; /* Center the buttons on smaller screens */
+    }
+}
