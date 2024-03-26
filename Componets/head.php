@@ -90,7 +90,72 @@ font-weight: bold;
   </style>
   </head>
 </head>
+<<<<<<< HEAD
 <?php include ("./navbar.php");  ?>
+=======
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <div class="navbar-header"></div>
+      <div class="secondary-logo">
+        <img src="images/Za-Alimi.jpg" alt="Another Logo" class="logo"> <!-- Adjust the image source and alt text -->
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "home") echo 'active'; ?>" aria-current="page" href="home.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "contact") echo 'active'; ?>" aria-current="page" href="contactus.php">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "about") echo 'active'; ?>" aria-current="page" href="about.php">About</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Services
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+</li>
+
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="chatroom.php">
+              <i class="fas fa-comments"></i> ChatRoom
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "services") echo 'active'; ?>" aria-current="page" href="services.php">
+              <i class="fas fa-search"></i>&nbsp; Ben
+            </a>
+          </li>
+          <li class="nav-item custom-yellow-bg">
+            <a class="nav-link <?php if ($currentPage == "services") echo 'active'; ?>" aria-current="page" href="services.php">
+              <i class="fas fa-phone"></i> 0998292856
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="chatroom.php">
+              <i class="fas fa-sign-in-alt"></i> Malawi
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+>>>>>>> 3e9622dad6b929a432006cf1d21a0cc14c5360ba
 <div class="container-fluid">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
