@@ -31,13 +31,13 @@
 </head>
 <body>
   <!-- Navigation -->
-  <?php include ("../navbar.php");  ?>
+  <?php include ("navbar.php");  ?>
 
   <!-- Page Content -->
   <div class="container-fluid mt-4 mb-4">
     <!-- Image at the top -->
     <div class="container mt-5">
-    <div style="background-image: url('../images/home1.jpeg'); background-size: cover; background-position: center; height: 500px;  width: 1500px;right: 0px;">
+    <div style="background-image: url('images/home1.jpeg'); background-size: cover; background-position: center; height: 500px;  width: 1500px;right: 0px;">
       <div class="centered-text">
       <h3>LEARNING SECTION</h3>
     </div>
@@ -66,7 +66,7 @@
       <div class="col-md-4 mb-4">
   
     <a href="land.php" class="text-decoration-none">
-      <div style="background-image: url('../images/home2.jpeg'); background-size: cover; height: 200px;"></div>
+      <div style="background-image: url('images/home2.jpeg'); background-size: cover; height: 200px;"></div>
     </a>
   <div class="card-body">
       <h5 class="card-title">Time of land preparations</h5>
@@ -76,7 +76,7 @@
 
       <div class="col-md-4 mb-4">
       <a href="pesticides.ph">
-      <div class="card" style="background-image: url('../images/rice.jpg">
+      <div class="card" style="background-image: url('images/rice.jpg">
           
         </div>
       </a>
@@ -87,7 +87,7 @@
       </div>
       <div class="col-md-4 mb-4">
       <a href="care.php">
-        <div class="card" style="background-image: url('../images/tea.jpg');">
+        <div class="card" style="background-image: url('images/tea.jpg');">
           
         </div>
       </a>
@@ -99,7 +99,7 @@
       <!-- Second Row -->
       <div class="col-md-4 mb-4">
       <a href="treatment.php">
-        <div class="card" style="background-image: url('../images/maize.jpeg');">
+        <div class="card" style="background-image: url('images/maize.jpeg');">
          
         </div>
       </a>
@@ -110,7 +110,7 @@
       </div>
       <div class="col-md-4 mb-4">
       <a href="pay.php">
-        <div class="card" style="background-image: url('../images/home3.jpeg');">
+        <div class="card" style="background-image: url('images/home3.jpeg');">
           
         </div>
       </a>
@@ -121,7 +121,7 @@
       </div>
       <div class="col-md-4 mb-4">
       <a href="pay.php">
-        <div class="card" style="background-image: url('../images/home2.jpeg');">
+        <div class="card" style="background-image: url('images/home2.jpeg');">
           
         </div>
       </a>
@@ -213,7 +213,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="../images/home6.jpeg" alt="Maize" class="img-fluid">
+                    <img src="images/home6.jpeg" alt="Maize" class="img-fluid">
                 </div>
                 <div class="col">
                     <a href="#" style="font-size: 20px;">Maize</a>
@@ -225,7 +225,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="../images/home1.jpeg" alt="Rice" class="img-fluid">
+                    <img src="images/home1.jpeg" alt="Rice" class="img-fluid">
                 </div>
                 <div class="col">
                     <a href="#" style="font-size: 20px;">Rice</a>
@@ -237,7 +237,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="../images/home2.jpeg" alt="Tobacco" class="img-fluid">
+                    <img src="images/home2.jpeg" alt="Tobacco" class="img-fluid">
                 </div>
                 <div class="col">
                     <a href="#" style="font-size: 20px;">Tobacco</a>
@@ -249,7 +249,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="../images/home3.jpeg" alt="Soya" class="img-fluid">
+                    <img src="images/home3.jpeg" alt="Soya" class="img-fluid">
                 </div>
                 <div class="col">
                     <a href="#" style="font-size: 20px;">Soya</a>
@@ -261,7 +261,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="../images/home4.jpeg" alt="Beans" class="img-fluid">
+                    <img src="images/home4.jpeg" alt="Beans" class="img-fluid">
                 </div>
                 <div class="col">
                     <a href="#" style="font-size: 20px;">Beans</a>
@@ -300,7 +300,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-<?php include ("footer.php");  ?>
+
 </html>
+<?php include ("footer.php");  ?>
 
 

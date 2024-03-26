@@ -1,0 +1,35 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .animal {
+    background: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .animal img {
+    width: 100%;
+    border-radius: 5px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .animal h3 {
+    margin-top: 10px;
+  }
+  
+  .animal h5 {
+    margin-top: 5px;
+    font-style: italic;
+  }

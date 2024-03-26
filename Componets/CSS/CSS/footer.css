@@ -1,0 +1,60 @@
+/* CSS for the footer */
+#footer {
+    background-color: #f0f0f0;
+    padding: 10px; /* Adjust padding as needed */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.3s ease; /* Add transition for smooth movement */
+    z-index: 1000; /* Ensure footer is above other elements */
+}
+
+.extra-links {
+    text-align: center;
+}
+
+.extra-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.extra-links ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.extra-links ul li:last-child {
+    margin-right: 0;
+}
+
+.social-btn {
+    display: inline-block;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.social-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+hr {
+    margin-top: 10px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .extra-links ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .social-btn {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

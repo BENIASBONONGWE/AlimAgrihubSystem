@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZaAlimi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    
     .navbar-nav {
       display: flex;
       justify-content: space-between;
@@ -84,9 +86,9 @@
     }
 
   </style>
+  </head>
+  
 </head>
-<body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <div class="navbar-header"></div>
@@ -145,7 +147,38 @@
     </div>
 </nav>
 
+<div class="container-fluid">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/tobacco Field.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption">
+          <h5>Welcome to ZaAlimi</h5>
+          <p>We provide top-notch services</p>
+          <a href="#" class="btn btn-brown">Discover More</a> <!-- Brown button for the first carousel item -->
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/maize.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption">
+          <h5>Discover Our Products</h5>
+          <p>Explore our wide range of products</p>
+          <a href="#" class="btn btn-brown">Discover More</a> <!-- Brown button for the second carousel item -->
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/bean.jpeg" class="d-block w-100" alt="...">
+        <div class="carousel-caption">
+          <h5>Contact Us</h5>
+          <p>Get in touch with us for more information</p>
+          <a href="contactus.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the third carousel item -->
+        </div>
+      </div>
+    </div>
+  </div>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+</div>
 </html>
+<?php include ("footer.php");  ?>
