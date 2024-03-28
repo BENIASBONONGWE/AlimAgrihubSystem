@@ -75,7 +75,7 @@
 </div>
 
       <div class="col-md-4 mb-4">
-      <a href="pesticides.ph">
+      <a href="pesticides.php" class="text-decoration-none">
       <div class="card" style="background-image: url('images/rice.jpg">
           
         </div>
@@ -98,7 +98,7 @@
       </div>
       <!-- Second Row -->
       <div class="col-md-4 mb-4">
-      <a href="treatment.php">
+      <a href="Prevention.php">
         <div class="card" style="background-image: url('images/maize.jpeg');">
          
         </div>
@@ -109,7 +109,7 @@
           </div>
       </div>
       <div class="col-md-4 mb-4">
-      <a href="pay.php">
+      <a href="payemproyee.php">
         <div class="card" style="background-image: url('images/home3.jpeg');">
           
         </div>
@@ -120,13 +120,13 @@
           </div>
       </div>
       <div class="col-md-4 mb-4">
-      <a href="pay.php">
+      <a href="farmbudget.php">
         <div class="card" style="background-image: url('images/home2.jpeg');">
           
         </div>
       </a>
       <div class="card-body">
-            <h5 class="card-title">How to pay employees</h5>
+            <h5 class="card-title">How to do farming budget</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
       </div>
@@ -273,19 +273,22 @@
 <h5>What to learn</h5>
 <ul class="list-unstyled">
     <li class="my-4">
-        <a href="#" style="font-size: 20px;">Time of land preparations</a>
+        <a href="land.php" style="font-size: 20px;">Time of land preparations</a>
     </li>
     <li class="my-4">
-        <a href="#" style="font-size: 20px;">Use of pesticides effectively</a>
+        <a href="pesticides.php" style="font-size: 20px;">Use of pesticides effectively</a>
     </li>
     <li class="my-4">
-        <a href="#" style="font-size: 20px;">Taking care of usable resources</a>
+        <a href="care.php" style="font-size: 20px;">Taking care of usable resources</a>
     </li>
     <li class="my-4">
-        <a href="#" style="font-size: 20px;">Prevention and treatment with pesticides</a>
+        <a href="Prevention.php" style="font-size: 20px;">Prevention and treatment with pesticides</a>
     </li>
     <li class="my-4">
-        <a href="#" style="font-size: 20px;">How to pay employees</a>
+        <a href="payemproyee.php" style="font-size: 20px;">How to pay employees</a>
+    </li>
+    <li class="my-4">
+        <a href="farmbudget.php" style="font-size: 20px;">Farm budgeting</a>
     </li>
 </ul>
       </div>

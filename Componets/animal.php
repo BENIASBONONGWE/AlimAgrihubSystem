@@ -27,52 +27,57 @@
 							<h5>breeds, pest and disease control etc</p>
                             </div>
 							</a>
-							
+
+							<a href = "chicken_details.php">
 							<div class="animal">
 							<img src="images\chicken.jpg" alt="">
-						    <a href = "#"> <h3>  CHICKEN FARMING </h3> </a> 
-							<h5>breeds, pest & disease control, care</h5>    
-                           </div>
+							<h3>  CHICKEN FARMING </h3> 
+							<h5>breeds, pest and disease control etc</p>
+                            </div>
+							</a>
 
+							<a href = "fish_details.php"> <h3>  FISH FARMING </h3> 
 							<div class="animal">
 							<img src="images\fish.jpg" alt="">
-							<a href = "#"> <h3>  FISH FARMING </h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
 							</div>
-							
+							</a>
+							<a href = "goat_details.php"> <h3> GOAT FARMING </h3> 
 							<div class="animal">
 							<img src="images\goat.jpg" alt="">
-							<a href = "#"> <h3> GOAT FARMING </h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
 							</div>
+							 </a>
 
+							 <a href ="pig_details.php"> <h3 >PIG FARMING</h3>
 						    <div class="animal">
 							<img src="images\pig.jpg" alt="">
-							<a href ="#"> <h3 >PIG FARMING</h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
                              </div>
-
+							 </a>
+							 
+							 <a href = "sheep_details.php"> <h3>SHEEP FARMING</h3>
 							 <div class="animal">
 							<img src="images\sheep.jpg" alt="" >
-							<a href = "#"> <h3>SHEEP FARMING</h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
                             </div>
+							</a>
 
+							<a href = "guineafowl_details.php"> <h3>GUINEA FOWL</h3>
 							<div class="animal">
 							<img src="images\guinea_fowl.jpg" alt="" >
-							<a href = "#"> <h3>GUINEA FOWL</h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
                             </div>
+							</a>
 
-
+							<a href = "ducks_details.php"> <h3>DUCKS</h3>
 							<div class="animal">
 							<img src="images\ducks.jpg" alt="" >
-							<a href = "#"> <h3>DUCKS</h3> </a>
 							<h5>types, pest & disease control, caring etc</h5>
                             </div>
+							</a>
 
-
-                            <div class="animal">
+                            <!-- <div class="animal">
 							<img src="images\rabbit.jpg" alt="" >
 							<a href = "#"> <h3>RABBIT</h3> </a>
 							<h5>Description, Species etc </h5>
@@ -96,7 +101,7 @@
 							<img src="images\rabbit.jpg" alt="" >
 							<a href = "#"> <h3>RABBIT</h3> </a>
 							<h5>Description, Species etc </h5>
-                            </div>
+                            </div> -->
   
 						</div>
 					</div>
