@@ -110,7 +110,7 @@
                     <a class="nav-link <?php if ($currentPage == "about") echo 'active'; ?>" aria-current="page" href="about.php">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="services" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Services
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -121,7 +121,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="chatroom.php">
+                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="login.php">
                         <i class="fas fa-comments"></i> ChatRoom
                     </a>
                 </li>
@@ -155,7 +155,7 @@
         <div class="carousel-caption">
           <h5>Welcome to ZaAlimi</h5>
           <p>We provide top-notch services</p>
-          <a href="#" class="btn btn-brown">Discover More</a> <!-- Brown button for the first carousel item -->
+          <a href="about.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the first carousel item -->
         </div>
       </div>
       <div class="carousel-item">
@@ -163,7 +163,7 @@
         <div class="carousel-caption">
           <h5>Discover Our Products</h5>
           <p>Explore our wide range of products</p>
-          <a href="#" class="btn btn-brown">Discover More</a> <!-- Brown button for the second carousel item -->
+          <a href="animal.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the second carousel item -->
         </div>
       </div>
       <div class="carousel-item">

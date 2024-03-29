@@ -119,7 +119,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="chatroom.php">
+                    <a class="nav-link <?php if ($currentPage == "chartroom") echo 'active'; ?>" aria-current="page" href="login.php">
                         <i class="fas fa-comments"></i> ChatRoom
                     </a>
                 </li>

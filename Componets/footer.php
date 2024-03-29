@@ -104,11 +104,11 @@
         <div class="col-md-1">
             <h5>Links</h5>
             <ul class="list-unstyled">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">services</a></li>
-                <li><a href="#chatroom">chatroom</a></li>
-                <li><a href="#contact">Contact us</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="animal.php">services</a></li>
+                <li><a href="chartroom.php">chatroom</a></li>
+                <li><a href="contactus.php">Contact us</a></li>
+                <li><a href="about.php">About</a></li>
                 <li><a href="#">Swag Store</a></li>
             </ul>
         </div>
