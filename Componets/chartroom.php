@@ -34,13 +34,17 @@ mysqli_close($link);
 }
 ?>
 <html>
+<?php
+include("navbar.php");
+?>
+
 <head>
 <style>
 *{
 	box-sizing:border-box;
 }
 body{
-	background-color:#abd9e9;
+	background-color:white;
 	font-family:Arial;
 }
 #container{
@@ -199,6 +203,7 @@ main footer textarea::placeholder{
 	color:#ddd;
 }
 
+
 </style>
 <body onload="show_func()">
 <div id="container">
@@ -328,5 +333,5 @@ endwhile;
 </div>
 
 </body>
-
+<?php include ("footer.php");  ?>
 </html>

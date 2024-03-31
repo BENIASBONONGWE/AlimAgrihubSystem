@@ -10,7 +10,10 @@
   <style>
     /* Custom styles for this template */
     body {
-      padding-top: 56px;
+      padding-top: 0px;
+      min-height: 100vh;
+      padding: 0;
+
     }
     .blog-post {
       margin-bottom: 4rem;
@@ -78,6 +81,7 @@
 include('db.php');
 
 // Fetch card data from the database
+
 $sql = "SELECT * FROM cards";
 $result = mysqli_query($conn, $sql);
 
@@ -91,7 +95,7 @@ if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                 <div class="col-md-4 mb-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="<?php echo $row['page']; ?>" class="text-decoration-none">
                         <div style="background-image: url('<?php echo $row['image_url']; ?>'); background-size: cover; height: 200px;"></div>
                     </a>
                     <div class="card-body">
@@ -332,7 +336,7 @@ mysqli_close($conn);
     </div>
   </div>
   <!-- /.container -->
-  <?php include ("footer.php");  ?>
+  
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -340,4 +344,4 @@ mysqli_close($conn);
 </body>
 
 </html>
-
+<?php include ("footer.php");  ?>

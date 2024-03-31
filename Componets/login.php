@@ -1,12 +1,10 @@
+
+
 <?php // login.php
 
-/*
-* genelify.com
-*/
 
-// Initialize session
 session_start();
- 
+
 // Check if the user is already logged in, if so then it will be redirected to home
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
      header("location: chartroom.php");
@@ -111,10 +109,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      <title>Login</title>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <style>
+        
          body{ font: 14px sans-serif; background: #efefef;}
          .wrapper{ width: 380px; padding: 20px; margin:0 auto; displays: blocks; margin-top: 60px; background: #fff;}
-     </style>
+  </style>
 </head>
+
+
 <body>
      <div class="wrapper">
          <h2>Login</h2>
@@ -144,4 +145,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          </form>
      </div>
 </body>
+
 </html>
