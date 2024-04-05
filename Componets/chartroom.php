@@ -66,7 +66,7 @@ main{
 main header{
 	height:100px;
 	padding:30px 20px 30px 40px;
-	background-color:#622569; 
+	background-color:green; 
 }
 main header > *{
 	display:inline-block;
@@ -157,7 +157,7 @@ main .message1{
 main footer{
 	height:150px;
 	padding:20px 30px 10px 20px;
-	background-color:#622569;
+	background-color:green;
 }
 main footer .input1{
 	resize:none;

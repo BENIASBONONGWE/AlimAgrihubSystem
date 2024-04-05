@@ -47,10 +47,10 @@
     }
 
     .card-wrapper:hover .card-body {
-        color: black;
+        color: green;
     }
     .card-title{
-color: black;
+color: green;
     }
     .learn{
       text-align: center;
@@ -162,7 +162,7 @@ color: black;
                     echo "<div class='card-wrapper'>";
                     echo "<div style='background-image: url(" . $row['image_url'] . "); background-size: cover; height: 200px;'></div>";
                     echo "<div class='card-body' style='height: 150px; overflow: hidden;'>";
-                    echo "<h5 class='card-title'>" . $row['title'] . "</h5>";
+                    echo "<h3 class='card-title'>" . $row['title'] . "</h3>";
                     echo "<p class='card-text'>" . $row['description'] . "</p>";
                     echo "</div>"; // Close card-body
                     echo "</div>"; // Close card-wrapper

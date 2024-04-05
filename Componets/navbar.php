@@ -115,7 +115,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="edu.php">Education</a></li>
                         <li><a class="dropdown-item" href="animal.php">Animal Production</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
                         <li><a class="dropdown-item" href="#">Separated link</a></li>
                     </ul>
                 </li>
