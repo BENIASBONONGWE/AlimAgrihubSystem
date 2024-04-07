@@ -64,7 +64,7 @@
                     include_once("db.php");
 
                     // Fetch data from the database
-                    $sql = "SELECT * FROM navigation_items";
+                    $sql = "SELECT * FROM maize_db";
                     $result = mysqli_query($conn, $sql);
 
                     // Output data of each row

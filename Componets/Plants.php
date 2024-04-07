@@ -79,52 +79,84 @@
     <div class="container">
       <div class="grid-3">
         <!-- Animal Cards -->
-        <a href="cattle_details.php" class="animal">
-          <img src="images\cattle.jpg" alt="" >
-          <h3>CATTLE FARMING</h3>  
-          <h5>breeds, pest and disease control etc</h5>
+        <a href="maize_deteals.php" class="animal">
+          <img src="images\maize.jpeg" alt="" >
+          <h3>MAIZE</h3>  
+          <h5>Land Preparation,
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties.</h5>
         </a>
 
-        <a href="chicken_details.php" class="animal">
-          <img src="images\chicken.jpg" alt="">
-          <h3>CHICKEN FARMING</h3> 
-          <h5>breeds, pest and disease control, etc.</h5>
+        <a href="tobacco_details.php" class="animal">
+          <img src="images\Tobacco Field.jpeg" alt="">
+          <h3>TOBACCO</h3> 
+          <h5>Land Preparation,
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties.</h5>
         </a>
 
-        <a href="fish_details.php" class="animal">
-          <img src="images\fish.jpg" alt="">
-          <h3>FISH FARMING</h3> 
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="rice_details.php" class="animal">
+          <img src="images\rice.jpg" alt="">
+          <h3>RICE</h3> 
+          <h5>Land Preparation,
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties.</h5>
         </a>
 
-        <a href="goat_details.php" class="animal">
-          <img src="images\goat.jpg" alt="">
-          <h3>GOAT FARMING</h3> 
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="soya_details.php" class="animal">
+          <img src="images\Soya.jpeg" alt="">
+          <h3>SOYA BEANS</h3> 
+          <h5>Land Preparation,
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties</h5>
         </a>
 
-        <a href="pig_details.php" class="animal">
-          <img src="images\pig.jpg" alt="">
-          <h3>PIG FARMING</h3>
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="groundnuts_details.php" class="animal">
+          <img src="images\Peanut.jpeg" alt="">
+          <h3>GROUNDNUTS</h3>
+          <h5>Land Preparation
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties.</h5>
         </a>
 
-        <a href="sheep_details.php" class="animal">
-          <img src="images\sheep.jpg" alt="">
-          <h3>SHEEP FARMING</h3>
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="cassava_details.php" class="animal">
+          <img src="images\Cassava.jpeg" alt="">
+          <h3>CASSAVA</h3>
+          <h5>Land Preparation
+    Planting,
+    Pests and Diseases,
+    Harvesting,
+     Varieties.</h5>
         </a>
 
-        <a href="guineafowl_details.php" class="animal">
-          <img src="images\guinea_fowl.jpg" alt="">
-          <h3>GUINEA FOWL</h3>
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="tea_details.php" class="animal">
+          <img src="images\tea.jpeg" alt="">
+          <h3>TEA</h3>
+          <h5>Land Preparation
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties</h5>
         </a>
 
-        <a href="ducks_details.php" class="animal">
-          <img src="images\ducks.jpg" alt="">
-          <h3>DUCKS</h3>
-          <h5>types, pest & disease control, caring, etc.</h5>
+        <a href="irishpotataos_details.php" class="animal">
+          <img src="images\Irish.jpeg" alt="">
+          <h3>IRISH</h3>
+          <h5>Land Preparation
+Planting,
+Pests and Diseases,
+Harvesting,
+Varieties</h5>
         </a>
       </div>
     </div>

@@ -43,13 +43,13 @@
     
     .animal h3 {
       margin-top: 10px;
-      text-decoration: none; /* Remove underlines */
+      text-decoration: none; 
       color: green;
     }
     
     .animal h5 {
       margin-top: 5px;
-      text-decoration: none; /* Remove underlines */
+      text-decoration: none; 
       color: green;
     }
   </style>
