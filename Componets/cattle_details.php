@@ -56,7 +56,7 @@
     <div class="container1">
         <div class="sidebar1">
             <br></br>
-            <h2>Navigation</h2>
+            <h2>TOPIC</h2>
             <br></br>
             <ul>
                 <?php
@@ -64,7 +64,7 @@
                     include_once("db.php");
 
                     // Fetch data from the database
-                    $sql = "SELECT * FROM navigation_items";
+                    $sql = "SELECT * FROM cattle_db";
                     $result = mysqli_query($conn, $sql);
 
                     // Output data of each row

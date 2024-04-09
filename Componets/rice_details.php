@@ -56,7 +56,7 @@
     <div class="container1">
         <div class="sidebar1">
             <br></br>
-            <h2>Navigation</h2>
+            <h2>TOPICS</h2>
             <br></br>
             <ul>
                 <?php

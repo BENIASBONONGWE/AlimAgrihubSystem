@@ -84,7 +84,9 @@
       margin-top: 20px; /* Adjust the top margin as needed */
       margin-bottom: 20px; /* Adjust the bottom margin as needed */
     }
-
+    .dropdown-item:hover {
+        background-color: gold; 
+    }
   </style>
   </head>
   
@@ -114,10 +116,11 @@
                         Services
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
                         <li><a class="dropdown-item" href="edu.php">Education</a></li>
                         <li><a class="dropdown-item" href="animal.php">Animal Production</a></li>
-                        <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                       
+                    
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -180,5 +183,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </div>
+<br></br>
+<br></br>
+
+<br></br>
+<?php include ("body.php");  ?>
+
+<br></br>
 </html>
 <?php include ("footer.php");  ?>

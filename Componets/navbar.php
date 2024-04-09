@@ -15,7 +15,6 @@
     .logo {
       height: 100px;
       width: 100px;
-      
     }
 
     .navbar-brand {
@@ -29,64 +28,43 @@
     .nav-item{
       margin-left: 7rem;
     }
-    .carousel-item {
-      position: relative;
+
+    .dropdown-item:hover {
+        background-color: gold; 
     }
 
-    .carousel-item img {
-      max-height: 600px; 
-      object-fit: cover;
+    /* Styling for the top navbar */
+    .top-navbar {
+      background-color: green; /* Adjust the background color as needed */
+      padding: 10px 0; /* Adjust the padding as needed */
+      text-align: center;
+      color: white; /* Adjust the text color as needed */
     }
 
-    .carousel-caption {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white; 
+    .top-navbar a {
+      color: white; /* Adjust the link color as needed */
+      text-decoration: none;
+      margin: 0 10px; /* Adjust the margin as needed */
     }
-    .btn-brown {
-      color: #fff; 
-      background-color: #ffd700; 
-      border-color: #ffd700;
-      padding: 10px;  
-    }
-
-    .custom-yellow-bg {
-      background-color: #ffd700; /* Adjust the hex code for your desired yellow shade */
-      padding: 5px; /* Add some padding for spacing (optional) */
-    }
-
-    .btn-brown:hover {
-      color: #fff; 
-      background-color: #ffd700; 
-    }
-
-    .text {
-      position: absolute;
-      top: 800px;
-      left: 100px;
-      padding: 100px;
-      font-size: large;
-      font-weight: bold;
-      width: 20%;
-      color: white;
-    }
-
-    .footer {
-      right: 20px;
-    }
-
-    .footer-image {
-      width: 100%; /* Adjust the width as needed */
-      margin-top: 20px; /* Adjust the top margin as needed */
-      margin-bottom: 20px; /* Adjust the bottom margin as needed */
-    }
-    
-
   </style>
+  <?php include ("head.php");  ?>
 </head>
+
 <body>
+
+<div class="top-navbar">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+</div>
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
@@ -109,16 +87,15 @@
                     <a class="nav-link <?php if ($currentPage == "about") echo 'active'; ?>" aria-current="page" href="about.php">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="edu.php">Education</a></li>
-                        <li><a class="dropdown-item" href="animal.php">Animal Production</a></li>
-                        <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                    </ul>
-                </li>
+    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Services
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="edu.php">Education</a></li>
+        <li><a class="dropdown-item" href="animal.php">Animal Production</a></li>
+        <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
+    </ul>
+</li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($currentPage == "chartroom") echo 'active'; ?>" aria-current="page" href="login.php">
                         <i class="fas fa-comments"></i> ChatRoom
@@ -145,11 +122,8 @@
         </div>
     </div>
 </nav>
-
-<!-- Top Bar -->
-
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+

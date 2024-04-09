@@ -92,7 +92,7 @@
         </a>
 
         <a href="fish_details.php" class="animal">
-          <img src="images\fish.jpg" alt="">
+          <img src="images\fish.jpeg" alt="">
           <h3>FISH FARMING</h3> 
           <h5>types, pest & disease control, caring, etc.</h5>
         </a>
@@ -122,7 +122,7 @@
         </a>
 
         <a href="ducks_details.php" class="animal">
-          <img src="images\ducks.jpg" alt="">
+          <img src="images\ducks.jpeg" alt="">
           <h3>DUCKS</h3>
           <h5>types, pest & disease control, caring, etc.</h5>
         </a>

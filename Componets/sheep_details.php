@@ -5,106 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Details</title>
     <link rel="stylesheet" href="css/cattle_details.css" />
+   
+
+    <!-- Add your custom styles here -->
+    <style>
+        /* Add custom styles for better readability */
+        
+        .container1 {
+            width: 98%; /* Adjust the width as needed */
+            margin:  0 auto; /* Center the container horizontally */
+            display: flex;
+        }
+        .sidebar1 {
+            flex-basis: 20%;
+            margin-right: 100px; /* Add margin to the sidebar */
+        }
+        .main-content1 {
+            flex-basis: 50%;
+        }
+        .sidebar h2, .main-content h2 {
+            color: black;
+        }
+        .sidebar1 p, .main-content1 p {
+            color: black;
+        }
+        .sidebar1 ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar1 li {
+            margin-bottom: 5px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .sidebar1 li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .sidebar1 li:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="sidebar">
+
+<?php include ("navbar.php");  ?>
+    <div class="container1">
+        <div class="sidebar1">
+            <br></br>
+            <h2>TOPIC</h2>
+            <br></br>
             <ul>
-                <li><a href="#" class="animal-link" data-animal="introduction">Introduction</a></li>
-                <li><a href="#" class="animal-link" data-animal="breeds">Breeds</a></li>
-                <li><a href="#" class="animal-link" data-animal="pest-disease">Pest and Disease Control</a></li>
-                <li><a href="#" class="animal-link" data-animal="importance">Importance</a></li>
-                <li><a href="#" class="animal-link" data-animal="feeds">Feeds</a></li>
+                <?php
+                    // Include database connection file
+                    include_once("db.php");
+
+                    // Fetch data from the database
+                    $sql = "SELECT * FROM sheep_db";
+                    $result = mysqli_query($conn, $sql);
+
+                    // Output data of each row
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<li><a href='#' onclick=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
+                    }
+                ?>
             </ul>
         </div>
-        <div class="main-content">
-            <!-- Hidden information sections for each animal -->
-            <div id="introduction" class="hidden-info">
-                <h3>Introduction</h3>
-                <ul>
-                    <li>Pig farming, also known as swine production, involves raising domestic pigs for various purposes, including meat production, breeding, and sometimes as pets</li> 
-                    <li> It's a significant agricultural activity worldwide due to the high demand for pork products</li>
-                    <li> Pig farming can range from small-scale backyard operations to large commercial enterprises</li>
-                    
-               </ul>
-            </div>
+        
+        <div class="main-content1" style="margin-top: 70px;">
+    <?php
+        // Reset the result pointer to the beginning
+        mysqli_data_seek($result, 0);
 
-            <div id="breeds" class="hidden-info">
-                <h3 class="topic">Breeds</h3>
-                <ul>
-                    <li> Yorkshire. Known for its large size, white color, and good mothering abilities. Often used for pork production</li>
-                    <li>Duroc. Recognized for its red color, fast growth rate, and efficient feed conversion. Commonly used in crossbreeding programs</li>
-                    <li>Hampshire. Known for its black body with a white belt around the shoulders, good growth rate, and meat quality.</li>
-                    <li>Hampshire. Known for its black body with a white belt around the shoulders, good growth rate, and meat quality.</li>
-                     <li>Berkshire. Valued for its marbled meat, hardiness, and gentle temperament.</li>
-                     <li>Landrace. Known for its long body, large litters and excellent maternal instincts.</li>
-                </ul>
-            </div>
+        // Output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<div id='" . $row['section_id'] . "' style='display: none;'>";
+            echo "<h2>" . $row['section_name'] . "</h2>";
+            echo "<p>" . nl2br($row['content']) . "</p>";
+            
+            // Check if there is a video path available
+            if (!empty($row['video_path'])) {
+                echo "<video width='320' height='240' controls>";
+                echo "<source src='" . $row['video_path'] . "' type='video/mp4'>";
+                echo "Your browser does not support the video tag.";
+                echo "</video>";
+            }
+            
+            echo "</div>";
+        }
 
-            <div id="pest-disease" class="hidden-info">
-                <h3 class="topic">Pests</h3>
-                <ul>
-                    <li>Mosquitoes</li>
-                    <li>Rodents</li>
-                    
-                    <li>Lice  (Nsabwe) </li>
-                    <li>Mites </li>
-                    
-               
-                <h3 class="topic">Diseases</h3>
-                <li>Ticks</li>
-                    <li>African Swine Fever (ASF)</li>
-                    <li>oot and Mouth Disease (FMD)</li>
-                    <li>Porcine Reproductive and Respiratory Syndrome (PRRS) </li>
-                    <li>Swine Influenza </li>
-                    </ul>
-                 </div>
+        // Close database connection
+        mysqli_close($conn);
+    ?>
+</div>
 
-            <div id="importance" class="hidden-info">
-                <h3 class="topic">Importance</h3>
-                <ul>
-                    <li>Food Production</li>
-                    <li>Provides income and employment opportunities for farmers and workers in the pork industry</li>
-                    <li>Pig manure can be utilized as organic fertilizer, contributing to sustainable agriculture practices </li>
-                    <li>Maintaining diverse pig breeds helps preserve genetic resources for future breeding programs and research.</li>
-                    
-                </ul>
-            </div>
-
-            <div id="feeds" class="hidden-info">
-             <h3 class="topic">Feeds</h3>
-                <ul>
-                    <li>Grains .ie. Corn, barley, wheat, and sorghum</li>
-                    <li>Protein Sources .ie. Soyabean meal, fish meal, and dried whey</li>
-                    <li> Vitamins and Minerals</li>
-                    <li>Madeya</li>
-                    <li>Water</li>
-                    <li>Forages .ie. Khovani</li>
-                </ul>
-            </div>
-        </div>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        $(document).ready(function() {
-            // Add click event listeners to animal links
-            $('.animal-link').click(function(event) {
-                event.preventDefault();
-                // Hide all information sections
-                $('.hidden-info').hide();
-                // Get the data-animal attribute value
-                var animal = $(this).data('animal');
-                // Show the corresponding information section
-                $('#' + animal).show();
+        function showContent(id) {
+            // Hide all content divs
+            var contentDivs = document.querySelectorAll('.main-content1 > div');
+            contentDivs.forEach(function(div) {
+                div.style.display = 'none';
             });
 
-            // Add click event listeners to topic headers
-            $('.topic').click(function() {
-                // Toggle visibility of corresponding information section
-                $(this).next('ul').toggle();
-            });
-        });
+            // Show the selected content div
+            document.getElementById(id).style.display = 'block';
+        }
     </script>
+     
 </body>
+
+
 </html>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+<?php include ("footer.php");  ?>
