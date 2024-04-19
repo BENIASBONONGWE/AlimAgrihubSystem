@@ -65,7 +65,7 @@
 </center>
 
 <center>
-  <p><i>Check it out.</i></p>
+<p><i style="color: green;">Check it out.</i></p>
 </center>
 
 <center>

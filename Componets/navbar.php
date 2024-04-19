@@ -34,36 +34,12 @@
     }
 
     /* Styling for the top navbar */
-    .top-navbar {
-      background-color: green; /* Adjust the background color as needed */
-      padding: 10px 0; /* Adjust the padding as needed */
-      text-align: center;
-      color: white; /* Adjust the text color as needed */
-    }
-
-    .top-navbar a {
-      color: white; /* Adjust the link color as needed */
-      text-decoration: none;
-      margin: 0 10px; /* Adjust the margin as needed */
-    }
+  
   </style>
   <?php include ("head.php");  ?>
 </head>
 
 <body>
-
-<div class="top-navbar">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-</div>
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">

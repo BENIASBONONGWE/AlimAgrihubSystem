@@ -59,13 +59,14 @@
 <?php include("navbar.php"); ?>
 <br></br>
 <center>
-  <p1><b>The page is about providing information on various animals commonly used in agriculture</b></p1>.
-  <p>It includes sections for different types of animals. Don't worry, check information regarding breeds,</p>
+<h><b>The page is about providing information on various crops commonly used in agriculture</b></h>
+  <p>It includes sections for different types of crops. Don't worry, check information regarding breeds,</p>
   <p>pest and disease control, and how you can take care of your animals.</p>
 </center>
 
 <center>
-  <p><i>Check it out.</i></p>
+<p><i style="color: green;">Check it out.</i></p>
+
 </center>
 
 <center>

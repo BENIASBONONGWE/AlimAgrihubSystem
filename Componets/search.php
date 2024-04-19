@@ -36,15 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     SELECT id, title, description, 'pesticides' AS category FROM pesticides WHERE title LIKE '%$searchTerm%' OR description LIKE '%$searchTerm%'
     ";
 
-    // Execute the query
-    // Example: $result = mysqli_query($conn, $sql);
-
-    // Dummy data for demonstration
-    $results = array(
-        array("id" => 1, "title" => "Result 1", "description" => "Description of result 1", "category" => "caring"),
-        array("id" => 2, "title" => "Result 2", "description" => "Description of result 2", "category" => "maize"),
-        array("id" => 3, "title" => "Result 3", "description" => "Description of result 3", "category" => "tea")
-    );
+  
 }
 ?>
 
