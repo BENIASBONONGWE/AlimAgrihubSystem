@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Check if user is not logged in, redirect to login page
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Set the current page variable for active navigation link
+$currentPage = "home";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,8 +136,8 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="login.php">
-                        <i class="fas fa-comments"></i> ChatRoom
+                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="sendsms.php">
+                        <i class="fas fa-comments"></i> Admin only
                     </a>
                 </li>
             </ul>
@@ -190,5 +202,6 @@
 <?php include ("body.php");  ?>
 
 <br></br>
-</html>
+
 <?php include ("footer.php");  ?>
+</html>

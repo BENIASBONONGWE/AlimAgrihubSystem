@@ -48,7 +48,7 @@
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: green;
             border: none;
             border-radius: 5px;
             color: #fff;
@@ -58,7 +58,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: gold;
         }
 
         .message {

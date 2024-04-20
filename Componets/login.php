@@ -1,149 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+            font-size: 16px;
+        }
+        body {
+            background-color: #435165;
+            margin: 0;
+        }
+        .login {
+            width: 400px;
+            background-color: #ffffff;
+            box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+            margin: 100px auto;
+            padding: 20px;
+        }
+        .login h1 {
+            text-align: center;
+            color: #5b6574;
+            font-size: 24px;
+            border-bottom: 1px solid #dee0e4;
+            margin-bottom: 20px;
+        }
+        .login form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .login form label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: #3274d6;
+            color: #ffffff;
+        }
+        .login form input[type="password"],
+        .login form input[type="text"] {
+            width: 310px;
+            height: 50px;
+            border: 1px solid #dee0e4;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        .login form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3274d6;
+            border: 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+            transition: background-color 0.2s;
+        }
+        .login form input[type="submit"]:hover {
+            background-color: green;
+            transition: background-color 0.2s;
+        }
+        .forgot-password-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .forgot-password-link a {
+            color: #3274d6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="login">
+    <h1>Login</h1>
+    <form action="login.php" method="post" autocomplete="off">
+        <label for="username">
+            <i class="fas fa-user"></i>
+        </label>
+        <input type="text" name="username" placeholder="Username" id="username" required>
+        <label for="password">
+            <i class="fas fa-lock"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+        <input type="submit" value="Sign up">
+        <p>Don't have an account? <a href="registering.php">Register now</a>.</p>
+    </form>
+</div>
+</body>
+</html>
 
-
-<?php // login.php
-
-
+<?php
 session_start();
 
-// Check if the user is already logged in, if so then it will be redirected to home
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-     header("location: chartroom.php");
-     exit;
+// Database connection
+$host = "localhost";
+$username = "root";
+$password = "";
+$database = "phpland";
+
+// Create connection
+$conn = new mysqli($host, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
- 
-// Add database configuration
-require_once "db.php";
- 
-// Define each variable with an empty value
-$name = $password = "";
-$name_err = $password_err = $login_err = "";
 
-// Define $name variable to avoid undefined variable error
-$name = "";
- 
-// Process the data if the form has been submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-     // Checks if name is empty
-     if(empty(trim($_POST["name"]))){
-         $name_err = "Please enter your name.";
-     } else{
-         $name = trim($_POST["name"]);
-     }
-    
-     // Checks if the password is empty
-     if(empty(trim($_POST["password"]))){
-         $password_err = "Please enter your password.";
-     } else{
-         $password = trim($_POST["password"]);
-     }
-    
-     // Validate name and password
-     if(empty($name_err) && empty($password_err)){
+// Process login form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-         // Connect with database
-         $sql = "SELECT id, name, password FROM users WHERE name = ?";
-        
-         if($stmt = mysqli_prepare($conn, $sql)){
+    // Prepare statement
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+    $num_rows = $stmt->num_rows;
 
-             // Bind variables into the statement as parameters
-             mysqli_stmt_bind_param($stmt, "s", $param_name);
-            
-             // Set parameters
-             $param_name = $name;
-            
-             // Execute
-             if(mysqli_stmt_execute($stmt)){
+    if ($num_rows == 1) {
+        $stmt->bind_result($db_password);
+        $stmt->fetch();
+        if (password_verify($password, $db_password)) {
+            // Password is correct, redirect to welcome page
+            $_SESSION['username'] = $username;
+            header("Location: Home.php");
+            exit();
+        } else {
+            // Incorrect password
+            echo "Incorrect username or password.";
+        }
+    } else {
+        // User not found
+        echo "Incorrect username or password.";
+    }
 
-                 // Save result
-                 mysqli_stmt_store_result($stmt);
-                
-                 // Checks if the name is already in use, if yes do the next validation
-                 if(mysqli_stmt_num_rows($stmt) == 1){
-
-                     // Bind the result variable
-                     mysqli_stmt_bind_result($stmt, $id, $name, $hashed_password);
-
-                     if(mysqli_stmt_fetch($stmt)){
-                        
-                         // Perform password validation
-                         if(password_verify($password, $hashed_password)){
-
-                             // If the password is successful, start into the session
-                             session_start();
-                            
-                             // Put data into session variables
-                             $_SESSION["loggedin"] = true;
-                             $_SESSION["id"] = $id;
-                             $_SESSION["name"] = $name;
-                            
-                             // Redirect user to home page
-                             header("location: chartroom.php");
-                         } else{
-                             // Displays an error if the password does not match
-                             $login_err = "Passwords do not match.";
-                         }
-                     }
-                 } else {
-                     // Displays an error if the name or password does not match
-                     $login_err = "Incorrect username or password.";
-                 }
-             } else {
-                 echo "Seems like an error, please try again later!";
-             }
-
-             // Close statement
-             mysqli_stmt_close($stmt);
-         }
-     }
-    
-     // Close connection
-     mysqli_close($conn);
+    $stmt->close();
 }
-?> 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-     <meta charset="UTF-8">
-     <title>Login</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <style>
-        
-         body{ font: 14px sans-serif; background: #efefef;}
-         .wrapper{ width: 380px; padding: 20px; margin:0 auto; displays: blocks; margin-top: 60px; background: #fff;}
-  </style>
-</head>
+$conn->close();
+?>
 
-
-<body>
-     <div class="wrapper">
-         <h2>Login</h2>
-         <p>Please fill in the data needed to access your page.</p>
-
-         <?php
-         if(!empty($login_err)){
-             echo '<div class="alert alert-danger">' . $login_err . '</div>';
-         }
-         ?>
-
-         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-             <div class="form-group">
-                 <label>Name</label>
-                 <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
-                 <span class="invalid-feedback"><?php echo $name_err; ?></span>
-             </div>
-             <div class="form-group">
-                 <label>Password</label>
-                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
-             </div>
-             <div class="form-group">
-                 <input type="submit" class="btn btn-primary" value="Login">
-             </div>
-             <p>Don't have an account? <a href="registration.php">Register here!</a>.</p>
-         </form>
-     </div>
-</body>
-
-</html>
