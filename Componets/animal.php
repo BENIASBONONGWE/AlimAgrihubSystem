@@ -56,7 +56,7 @@
 </head>
 <body>
 
-<?php include("navbar.php"); ?>
+<?php include("nav.php"); ?>
 <br></br>
 <center>
   <p1><b>The page is about providing information on various animals commonly used in agriculture</b></p1>.

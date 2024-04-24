@@ -56,7 +56,7 @@
 </head>
 <body>
 
-<?php include("navbar.php"); ?>
+<?php include("nav.php"); ?>
 <br></br>
 <center>
 <h><b>The page is about providing information on various crops commonly used in agriculture</b></h>

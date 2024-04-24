@@ -53,7 +53,7 @@
             line-height: 1.5;
         }
     </style>
-    <?php include ("navbar.php");  ?>
+    <?php include ("nav.php");  ?>
 </head>
 <body>
 

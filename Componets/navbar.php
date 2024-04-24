@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,15 +74,15 @@
     </ul>
 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "chartroom") echo 'active'; ?>" aria-current="page" href="login.php">
-                        <i class="fas fa-comments"></i> ChatRoom
+                    <a class="nav-link <?php if ($currentPage == "chartroom") echo 'active'; ?>" aria-current="page" href="sendsms.php">
+                      AdminOnly
                     </a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "search") echo 'active'; ?>" aria-current="page" href="search.php">
-                        <i class="fas fa-search"></i>&nbsp; 
+                    <a class="nav-link <?php if ($currentPage == "search") echo 'active'; ?>" aria-current="page" href="seed.php">
+                        SeedCalculator 
                     </a>
                 </li>
                 <li class="nav-item custom-yellow-bg">

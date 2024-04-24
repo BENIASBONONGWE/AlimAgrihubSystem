@@ -1,15 +1,4 @@
-<?php
-session_start();
 
-// Check if user is not logged in, redirect to login page
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-
-// Set the current page variable for active navigation link
-$currentPage = "home";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,33 +9,7 @@ $currentPage = "home";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     
-    .navbar-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      height: 100px;
-      width: 100px;
-      
-    }
-
-    .navbar-brand {
-      margin-left: 5rem;
-    }
-
-    .secondary-logo {
-      margin-left: 5rem;
-    }
-
-    .nav-item{
-      margin-left: 7rem;
-    }
-    .carousel-item {
-      position: relative;
-    }
-
+    
     .carousel-item img {
       max-height: 600px; 
       object-fit: cover;
@@ -103,65 +66,7 @@ $currentPage = "home";
   </head>
   
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-        <div class="navbar-header"></div>
-        <div class="secondary-logo">
-            <img src="images/Za-Alimi.jpg" alt="Another Logo" class="logo">
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "home") echo 'active'; ?>" aria-current="page" href="home.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "contact") echo 'active'; ?>" aria-current="page" href="contactus.php">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "about") echo 'active'; ?>" aria-current="page" href="about.php">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle <?php if ($currentPage == "services") echo 'active'; ?>" href="services" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="Plants.php">CROPS</a></li>
-                        <li><a class="dropdown-item" href="edu.php">Education</a></li>
-                        <li><a class="dropdown-item" href="animal.php">Animal Production</a></li>
-                       
-                    
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "chatroom") echo 'active'; ?>" aria-current="page" href="sendsms.php">
-                        <i class="fas fa-comments"></i> Admin only
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "search") echo 'active'; ?>" aria-current="page" href="search.php">
-                        <i class="fas fa-search"></i>&nbsp; 
-                    </a>
-                </li>
-                <li class="nav-item custom-yellow-bg">
-                    <a class="nav-link <?php if ($currentPage == "phone") echo 'active'; ?>" aria-current="page" href="phone.php">
-                        <i class="fas fa-phone"></i> 0998292856
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php if ($currentPage == "location") echo 'active'; ?>" aria-current="page" href="location.php">
-                        <i class="fas fa-map-marker-alt"></i> Malawi
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<?php include ("nav.php");  ?>
 <div class="container-fluid">
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
@@ -198,6 +103,9 @@ $currentPage = "home";
 <br></br>
 <br></br>
 
+<br></br>
+
+<br></br>
 <br></br>
 <?php include ("body.php");  ?>
 

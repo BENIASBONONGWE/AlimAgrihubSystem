@@ -59,7 +59,7 @@ color: green;
 </head>
 <body>
   <!-- Navigation -->
-  <?php include ("navbar.php");  ?>
+  <?php include ("nav.php");  ?>
 
   <!-- Page Content -->
   <div class="container-fluid mt-4 mb-4">

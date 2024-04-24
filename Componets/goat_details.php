@@ -52,7 +52,7 @@
 
 <body>
 
-<?php include ("navbar.php");  ?>
+<?php include("nav.php"); ?>
     <div class="container1">
         <div class="sidebar1">
             <br></br>

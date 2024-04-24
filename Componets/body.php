@@ -122,7 +122,7 @@ Varieties.</h5>
       </div>
       
     </div>
-    <a href="Plants.php" class="button">More</a>
+  
   </section>
 </main>
 <br>
