@@ -15,7 +15,7 @@
         }
 
         header {
-            background-color: #00bcd4;
+            background-color: green;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -67,6 +67,12 @@
 
     </style>
 </head>
+<?php include ("nav.php");  ?>
+<br ><br>
+<br ><br>
+<br ><br>
+<br ><br>
+
 <body>
     <header>
         <h1>Wealther</h1>
@@ -75,12 +81,19 @@
     <main>
         <section class="features">
             <a href="head.php" class="feature">
-                <h2>chech your Weather</h2>
-                <p>Add and manage your favorite locations for quick access.</p>
+                <h2>check your Weather</h2>
+                <p>Your 5 days wealther upudate</p>
             </a>
             <!-- Add more feature sections as needed -->
         </section>
     </main>
     
 </body>
+<br ><br>
+<br ><br>
+<br ><br>
+<br ><br>
+<br ><br>
+<br ><br>
+<?php include ("footer.php");  ?>
 </html>

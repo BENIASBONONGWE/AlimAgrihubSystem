@@ -23,9 +23,9 @@
       color: white; 
     }
     .btn-brown {
-      color: #fff; 
-      background-color: #ffd700; 
-      border-color: #ffd700;
+      color: white; 
+      background-color:green; 
+      border-color: green;
       padding: 10px;  
     }
 
@@ -74,15 +74,15 @@
         <img src="images/tobacco Field.jpeg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5>Welcome to ZaAlimi</h5>
-          <p>We provide top-notch services</p>
+          <p>About Us</p>
           <a href="about.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the first carousel item -->
         </div>
       </div>
       <div class="carousel-item">
         <img src="images/maize.jpeg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
-          <h5>Discover Our Products</h5>
-          <p>Explore our wide range of products</p>
+          <h5>Discover The Products</h5>
+          <p>Explore on Animal production</p>
           <a href="animal.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the second carousel item -->
         </div>
       </div>
