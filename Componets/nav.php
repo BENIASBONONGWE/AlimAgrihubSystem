@@ -70,7 +70,7 @@
 
 <div class="top-bar" id="topBar">
     <a href="sendsms.php">admin</a>
-    <a href="e-learning.php">wealther</a>
+    <a href="wealther.php">wealther</a>
     <a href="student-portal.php">Compaigns</a>
     <a href="staff-portal.php">farmer Registration</a>
     <a href="alumni.php">seedd calculator</a>

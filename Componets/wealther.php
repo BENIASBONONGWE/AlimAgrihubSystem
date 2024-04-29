@@ -1,26 +1,86 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Forecast Weather using OpenWeatherMap with PHP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealther - Your Weather Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00bcd4;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+        }
+
+        .feature {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="report-container">
-        <h2><?php echo $data->name; ?> Weather Status</h2>
-        <div class="time">
-            <div><?php echo date("l g:i a", $currentTime); ?></div>
-            <div><?php echo date("jS F, Y",$currentTime); ?></div>
-            <div><?php echo ucwords($data->weather[0]->description); ?></div>
-        </div>
-        <div class="weather-forecast">
-            <img
-                src="https://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
-                class="weather-icon" /> <?php echo $data->main->temp_max; ?>°C<span
-                class="min-temperature"><?php echo $data->main->temp_min; ?>°C</span>
-        </div>
-        <div class="time">
-            <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
-            <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
-        </div>
-    </div>
+    <header>
+        <h1>Wealther</h1>
+        <p>Your Weather Companion</p>
+    </header>
+    <main>
+        <section class="features">
+            <a href="head.php" class="feature">
+                <h2>chech your Weather</h2>
+                <p>Add and manage your favorite locations for quick access.</p>
+            </a>
+            <!-- Add more feature sections as needed -->
+        </section>
+    </main>
+    
 </body>
 </html>
