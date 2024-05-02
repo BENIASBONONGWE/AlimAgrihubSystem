@@ -72,7 +72,7 @@
     <a href="sendsms.php">admin</a>
     <a href="wealther.php">wealther</a>
     <a href="student-portal.php">Compaigns</a>
-    <a href="staff-portal.php">farmer Registration</a>
+    <a href="registe.php">farmer Registration</a>
     <a href="alumni.php">seedd calculator</a>
     <a href="job-opportunities.php">feed calculator</a>
   
@@ -80,7 +80,7 @@
 
 <div class="navbar" id="navbar">
     <a class="logo" href="#">
-        <img src="images/logo.jpg" alt="Logo">
+        <img src="images/Za-AlimiTransparent.png" alt="Logo">
     </a>
     <a href="home.php">Home</a>
     <a href="contactus.php">Contact Us</a>

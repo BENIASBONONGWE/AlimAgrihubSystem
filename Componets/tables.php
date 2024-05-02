@@ -185,3 +185,13 @@ CREATE TABLE users (
     phone VARCHAR(15) UNIQUE NOT NULL,
     type ENUM('admin', 'user') NOT NULL
 );
+CREATE TABLE farmers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    farmer_type ENUM('all', 'crop', 'animal') NOT NULL,
+    dob DATE,
+    gender ENUM('male', 'female', 'other') NOT NULL
+);
