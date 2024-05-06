@@ -22,9 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the message was sent successfully
     if ($message) {
-        echo '<div class="message">Message sent successfully</div>';
+        // JavaScript for success pop-up
+        echo '<script>alert("Message sent successfully");</script>';
+        // Redirect to halo.php
+        echo '<script>window.location.href = "sendsms.php";</script>';
+        exit(); // Ensure that no other content is sent after the header
     } else {
-        echo '<div class="error">Failed to send message</div>';
+        // JavaScript for error pop-up
+        echo '<script>alert("Failed to send message");</script>';
     }
 }
 ?>

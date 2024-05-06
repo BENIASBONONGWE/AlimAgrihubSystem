@@ -92,6 +92,7 @@
                     const cityElement = document.getElementById('city');
                     cityElement.textContent = `City: ${data.city.name}, ${data.city.country}`;
                     displayWeatherForecast(data);
+                    sendDataToServer(data); // Send data to PHP script
                 })
                 .catch(error => {
                     console.error('Error fetching weather data:', error);
@@ -107,7 +108,7 @@
                 weatherData.list.slice(0, 5).forEach(forecast => {
                     const date = forecast.dt_txt.split(' ')[0];
                     const time = forecast.dt_txt.split(' ')[1];
-                    const weatherDescription = mapWeatherCondition(forecast.weather[0].id);
+                    const { weatherDescription, farmingAdvice } = mapWeatherCondition(forecast.weather[0].id);
                     const temperature = forecast.main.temp;
                     const humidity = forecast.main.humidity;
                     const rainfall = forecast.rain ? forecast.rain['3h'] : 0;
@@ -126,6 +127,7 @@
                             <p>Rainfall: ${rainfall} mm</p>
                             <p>Wind Speed: ${windSpeed} m/s</p>
                             <p>Wind Direction: ${windDirection}°</p>
+                            <p>Farming Advice: ${farmingAdvice}</p>
                         </div>
                     `;
                     weatherInfoElement.appendChild(forecastElement);
@@ -136,65 +138,77 @@
         }
 
         function mapWeatherCondition(weatherId) {
-            // Map OpenWeatherMap weather condition codes to farmer-friendly descriptions
-            // This is just an example, you can adjust the descriptions as needed
-            switch (true) {
-                case weatherId >= 200 && weatherId < 300:
-                    return 'Thunderstorms expected';
-                case weatherId >= 300 && weatherId < 500:
-                    return 'Light rain expected';
-                case weatherId >= 500 && weatherId < 600:
-                    return 'Rain showers expected';
-                case weatherId >= 600 && weatherId < 700:
-                    return 'Snowfall expected';
-                case weatherId >= 700 && weatherId < 800:
-                    return 'Mist or fog expected';
-                case weatherId === 800:
-                    return 'Clear skies';
-                case weatherId === 801 || weatherId === 802:
-                    return 'Partly cloudy skies';
-                case weatherId === 803 || weatherId === 804:
-                    return 'Overcast skies';
-                default:
-                    return 'Weather conditions expected';
-            }
-        }
-
-        function showWeatherDetails(weatherDescription, temperature, humidity, rainfall, windSpeed, windDirection) {
+            let weatherDescription;
             let farmingAdvice;
 
-            // Generate farming advice based on weather conditions
-            switch (weatherDescription.toLowerCase()) {
-                case 'thunderstorms expected':
+            // Map OpenWeatherMap weather condition codes to descriptions and farming advice
+            // Adjust the descriptions and advice as needed
+            switch (true) {
+                case weatherId >= 200 && weatherId < 300:
+                    weatherDescription = 'Thunderstorms expected';
                     farmingAdvice = 'Heavy rain expected today. Avoid outdoor activities and secure livestock and equipment.';
                     break;
-                case 'light rain expected':
+                case weatherId >= 300 && weatherId < 500:
+                    weatherDescription = 'Light rain expected';
                     farmingAdvice = 'Light rain expected today. No significant impact on farming activities.';
                     break;
-                case 'rain showers expected':
+                case weatherId >= 500 && weatherId < 600:
+                    weatherDescription = 'Rain showers expected';
                     farmingAdvice = 'Rain showers expected today. Consider protecting crops and outdoor equipment.';
                     break;
-                case 'snowfall expected':
+                case weatherId >= 600 && weatherId < 700:
+                    weatherDescription = 'Snowfall expected';
                     farmingAdvice = 'Snowfall expected today. Take precautions to protect crops and livestock from the cold.';
                     break;
-                case 'mist or fog expected':
+                case weatherId >= 700 && weatherId < 800:
+                    weatherDescription = 'Mist or fog expected';
                     farmingAdvice = 'Mist or fog expected today. Be cautious when working outdoors, visibility may be low.';
                     break;
-                case 'clear skies':
+                case weatherId === 800:
+                    weatherDescription = 'Clear skies';
                     farmingAdvice = 'Clear skies today. Ideal conditions for farming activities.';
                     break;
-                case 'partly cloudy skies':
+                case weatherId === 801 || weatherId === 802:
+                    weatherDescription = 'Partly cloudy skies';
                     farmingAdvice = 'Partly cloudy skies today. No significant impact on farming activities.';
                     break;
-                case 'overcast skies':
+                case weatherId === 803 || weatherId === 804:
+                    weatherDescription = 'Overcast skies';
                     farmingAdvice = 'Overcast skies today. Monitor weather updates for any changes.';
                     break;
                 default:
+                    weatherDescription = 'Weather conditions expected';
                     farmingAdvice = 'Weather conditions expected. Monitor weather updates for farming planning.';
             }
 
-            // Display a pop-up message with detailed weather information and farming advice
-            alert(`Weather Description: ${weatherDescription}\nTemperature: ${temperature} °C\nHumidity: ${humidity} %\nRainfall: ${rainfall} mm\nWind Speed: ${windSpeed} m/s\nWind Direction: ${windDirection}°\n\nFarming Advice: ${farmingAdvice}`);
+            return { weatherDescription, farmingAdvice };
+        }
+
+        function showWeatherDetails(weatherDescription, temperature, humidity, rainfall, windSpeed, windDirection) {
+            // Your pop-up message logic here
+        }
+
+        function sendDataToServer(data) {
+            const xhr = new XMLHttpRequest();
+            const url = 'send_weather_data.php';
+            const jsonData = JSON.stringify(data);
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log('Data sent successfully');
+                } else {
+                    console.error('Failed to send data');
+                }
+            };
+
+            xhr.onerror = function () {
+                console.error('Network Error');
+            };
+
+            xhr.send(jsonData);
         }
 
         function getLocation() {

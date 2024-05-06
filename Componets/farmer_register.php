@@ -58,8 +58,8 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         
-        <label for="address">Where do you stay:</label>
-        <input type="text" id="address" name="address">
+        <label for="location">Where are you from:</label>
+        <input type="text" id="location" name="location">
         
         <label for="farmer_type">Type of Farmer:</label>
         <select id="farmer_type" name="farmer_type">

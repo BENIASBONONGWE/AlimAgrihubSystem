@@ -69,10 +69,10 @@
 <body>
 
 <div class="top-bar" id="topBar">
-    <a href="sendsms.php">admin</a>
+    <a href="extension_registering.php">admin</a>
     <a href="wealther.php">wealther</a>
-    <a href="student-portal.php">Compaigns</a>
-    <a href="registe.php">farmer Registration</a>
+    <a href="view_campaigns.php">Compaigns</a>
+    <a href="farmer_register.php">farmer Registration</a>
     <a href="alumni.php">seedd calculator</a>
     <a href="job-opportunities.php">feed calculator</a>
   

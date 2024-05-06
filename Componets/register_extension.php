@@ -5,15 +5,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "db.php";
 
     // Retrieve form data
-    $full_name = $_POST["full_name"];
+    $full_name = $_POST["fullName"];
     $phone = $_POST["phone"];
+    $email = $_POST["email"];
+    $location = $_POST["location"]; // Include location in registration
+    $employeeNumber = $_POST["employeeNumber"]; // Retrieve employee number from form
     $password = $_POST["password"];
-    $location = $_POST["location"];
-    $farmer_type = $_POST["farmer_type"];
-    $dob = $_POST["dob"];
-    $gender = $_POST["gender"];
 
-    // Hash the password (You should use more secure methods for hashing)
+    // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     try {
@@ -24,14 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Insert user data into the database
-        $sql = "INSERT INTO farmers (full_name, phone, password, location, farmer_type, dob, gender) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO extension_workers (full_name, phone, email, location, employee_number, password) 
+                VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$full_name, $phone, $hashed_password, $location, $farmer_type, $dob, $gender]);
+        $stmt->execute([$full_name, $phone, $email, $location, $employeeNumber, $hashed_password]);
 
         if ($stmt->rowCount() > 0) {
             // Redirect to another page
-            header("Location: home.php");
+            header("Location: extensionlogin.php");
             exit(); // Make sure to stop further execution
         } else {
             echo "Error: Unable to create new record";

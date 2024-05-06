@@ -195,3 +195,10 @@ CREATE TABLE farmers (
     dob DATE,
     gender ENUM('male', 'female', 'other') NOT NULL
 );
+CREATE TABLE campaigns (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    campaign_type VARCHAR(255) NOT NULL,
+    description TEXT,
+    target_audience VARCHAR(255),
+    scheduled_date DATE
+);
