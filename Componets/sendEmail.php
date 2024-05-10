@@ -7,13 +7,7 @@ require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
 require 'phpMailer/src/SMTP.php';
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "phpland";
-
-// Create connection
-$conn = mysqli_connect($host, $username, $password, $database);
+include('db.php');
 
 // Check connection
 if (!$conn) {

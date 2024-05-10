@@ -37,8 +37,8 @@
       font-size: 14px;
     }
     input[type="submit"] {
-      background-color: #007bff;
-      color: #fff;
+      background-color: green;
+      color: white;
       border: none;
       padding: 10px 20px;
       border-radius: 3px;
@@ -46,20 +46,40 @@
       transition: background-color 0.3s ease;
     }
     input[type="submit"]:hover {
-      background-color: #0056b3;
+      background-color: green;
     }
     .login-link {
       text-decoration: none;
-      color: #007bff;
+      color: green;
       display: inline-block;
       margin-top: 10px;
     }
+    .logo {
+      height: 150px;
+      width: 150px;
+      padding-left: 750px;
+    }
+
+    .navbar-brand {
+      margin-left: 5rem;
+    }
+
+    .secondary-logo {
+      margin-left: 5rem;
+    }
   </style>
 </head>
+<div class="secondary-logo">
+            <img src="images/Logo1.png" alt="Another Logo" class="logo">
+        </div>
+
+<form action="register_extension.php" method="post" enctype="multipart/form-data">
+  
 <body>
 
   <form action="register_extension.php" method="post" enctype="multipart/form-data">
   <h2>Extension Worker Registration</h2>
+ 
     <label for="fullName">Full Name:</label><br>
     <input type="text" id="fullName" name="fullName" required><br>
     <label for="phone">Phone Number:</label><br>
@@ -77,6 +97,7 @@
     <h3>Already Have an Account? <a href="extensionlogin.php" class="login-link">Log In</a></h3>
   </form>
 </body>
+<?php include ("footer.php");  ?>
 </html>
 
 

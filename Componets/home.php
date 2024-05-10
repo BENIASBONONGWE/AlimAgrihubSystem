@@ -5,9 +5,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZaAlimi</title>
+  <title>ZaAlimi Management System</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="aboutus.css" rel="stylesheet">
+  <link href="body.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="testimonial.css">
+
+  <!-- Swiper JavaScript -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>
+
+<!-- Your custom CSS -->
+<link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  
+  <!-- Favicons -->
+  <link href="images/Logo.png" rel="icon">
+  <link href="images/Logo.png" rel="apple-touch-icon">
+</head>
   <style>
+    .wrapper{
+      padding: 80px;
+    }
     
     
     .carousel-item img {
@@ -24,21 +50,32 @@
     }
     .btn-brown {
       color: white; 
-      background-color:green; 
-      border-color: green;
+      background-color:#70b72d; 
+      border-color: #70b72d;
+      padding: 10px;  
+    }
+
+    .btn-brown1 {
+      color: white; 
+      background-color:#70b72d; 
+      border-color: #70b72d;
       padding: 10px;  
     }
 
     .custom-yellow-bg {
-      background-color: #ffd700; /* Adjust the hex code for your desired yellow shade */
+      background-color: #70b72d; /* Adjust the hex code for your desired yellow shade */
       padding: 5px; /* Add some padding for spacing (optional) */
     }
 
     .btn-brown:hover {
-      color: #fff; 
-      background-color: #ffd700; 
+      color: white; 
+      background-color: #70b72d; 
     }
 
+    .btn-brown1:hover {
+      color: white; 
+      background-color: #70b72d; 
+    }
     .text {
       position: absolute;
       top: 800px;
@@ -60,8 +97,29 @@
       margin-bottom: 20px; /* Adjust the bottom margin as needed */
     }
     .dropdown-item:hover {
-        background-color: gold; 
+        background-color: #70b72d; 
     }
+    .about{
+      text-align: center;
+      color: #70b72d;
+       font-size: 24px;
+        font-family: Arial, sans-serif;
+    }
+   
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #70b72d; /* Green color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+.learn-more-btn:hover {
+  background-color: #70b72d;
+  color: white;
+}
   </style>
   </head>
   
@@ -71,15 +129,16 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/tobacco Field.jpeg" class="d-block w-100" alt="...">
+        <img src="images/farmer.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
-          <h5>Welcome to ZaAlimi</h5>
-          <p>About Us</p>
-          <a href="about.php" class="btn btn-brown">Discover More</a> <!-- Brown button for the first carousel item -->
+          <h1>Modern Farming Techniques</h1>
+          <p style = "text-shadow: 2px 2px 4px black">Our Application offers Farmers with a wide range of modern farming information compiled by experts to help turn farming to high profitable venture</p>
+          <a href="about.php" class="btn btn-brown">Learn More</a>
+          <a href="contactus.php" class="btn btn-brown1">Contact Us</a> <!-- Brown button for the first carousel item -->
         </div>
       </div>
       <div class="carousel-item">
-        <img src="images/maize.jpeg" class="d-block w-100" alt="...">
+        <img src="images/clouds-farm.png" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5>Discover The Products</h5>
           <p>Explore on Animal production</p>
@@ -87,7 +146,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="images/bean.jpeg" class="d-block w-100" alt="...">
+        <img src="images/cattle.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5>Contact Us</h5>
           <p>Get in touch with us for more information</p>
@@ -102,14 +161,76 @@
 </div>
 <br></br>
 <br></br>
-
-<br></br>
-
-<br></br>
-<br></br>
+        
+<div class="about-section">
+            <div class="wrapper">
+                <div class="content">
+                <div class="image-container">
+                <img src="images/chicken.jpg" alt="Image Description" class="about-image">
+                  </div>
+                    <h1  class="about">WHO WE ARE</h1>
+                    <p>Za-Alimi agri-hub management system is a comprehensive platform aimed at empowering farmers with
+                        knowledge, skills, and resources to enhance their farming practices and improve their agricultural
+                        productivity. Our system provides accessible and practical education on various aspects of agriculture
+                        including crop cultivation, livestock management, pest and disease control, weather-related information, and many more.
+                    </p>
+                    <a href="about.php" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php include ("body.php");  ?>
 
 <br></br>
+
+    
+</section>
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div>
+          <h2 style="color:#70b72d; font-size: 20 px;">TESTIMONIES</h2>
+          <p>Success Stories - Stories from the Field</p>
+        </div>
+
+        <div>
+          <div>
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="images/testphoto.jpg" class="testimonial-img" alt="">
+                  <h3>James Chikoti</h3>
+                  <h4>Ceo & Founder of NasFam</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    "Many shared a negative vision of agriculture, but over time members of the Za-Alimi have been gradually conquered, agriculture is our new love and a hope for our life"
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="images/testphoto1.jpg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    "My neighbours contact me whenever they have a problem in their field, and I am able to give them an advice, thanks to Za-Alimi Management System"
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
 
 <?php include ("footer.php");  ?>
 </html>

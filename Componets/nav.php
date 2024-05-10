@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navigation Bar</title>
+    <title>Za-Alimi AgriHub</title>
     <style>
         /* Styles for the top bar */
         .top-bar {
-            background-color:green;  /* Change background color as needed */
+            background-color:#70b72d;  /* Change background color as needed */
             padding: 10px;
             text-align: right;  /* Align links to the right */
             position: fixed;
@@ -27,7 +27,7 @@
         }
 
         .top-bar a:hover {
-            background-color: green;  /* Change hover color as needed */
+            background-color: #70b72d;  /* Change hover color as needed */
         }
 
         /* Styles for the main navigation bar */
@@ -52,16 +52,17 @@
         }
 
         .navbar a:hover {
-            background-color: whitesmoke;  /* Change hover color as needed */
+            /* background-color: #007bff;  Change hover color as needed */
         }
 
         .logo {
-            margin-right: 10px;  /* Add margin for spacing */
+            margin-right: 10px 10px;  /* Add margin for spacing */
         }
 
         .logo img {
             width: auto;  /* Adjust image width automatically */
-            height: 100px;  /* Adjust image height as needed */
+            height: 160px;  /* Adjust image height as needed */
+            padding-bottom: 70px;
         }
     </style>
 </head>
@@ -69,28 +70,28 @@
 <body>
 
 <div class="top-bar" id="topBar">
-    <a href="extension_registering.php">admin</a>
-    <a href="wealther.php">wealther</a>
-    <a href="view_campaigns.php">Compaigns</a>
+    <a href="extensionlogin.php">Admin</a>
+    <a href="head.php">Wealther</a>
+    <a href="halo.php">Compaigns</a>
     <a href="farmer_register.php">farmer Registration</a>
-    <a href="alumni.php">seedd calculator</a>
-    <a href="job-opportunities.php">feed calculator</a>
+    <a href="seed.php">Seed Calculator</a>
+    <a href="feed_calculator.php">feed Calculator</a>
   
 </div>
 
 <div class="navbar" id="navbar">
     <a class="logo" href="#">
-        <img src="images/Za-AlimiTransparent.png" alt="Logo">
+        <img src="images/Logo.png" alt="Logo">
     </a>
-    <a href="home.php">Home</a>
-    <a href="contactus.php">Contact Us</a>
-    <a href="about.php">About</a>
-    <a href="edu.php">Education</a>
-    <a href="animal.php">Animal </a>
-    <a href="Plants.php">Plants</a>
+    <a href="home.php">HOME</a>
+    <a href="contactus.php">CONTACT US</a>
+    <a href="about.php">ABOUT</a>
+    <a href="edu.php">EDUCATION</a>
+    <a href="animal.php">ANIMALS</a>
+    <a href="Plants.php">PLANTS</a>
 </div>
 
-<script>
+<!-- <script>
     // Hide top bar on scroll down
     let lastScrollTop = 0;
     window.addEventListener("scroll", function(){
@@ -102,7 +103,7 @@
         }
         lastScrollTop = currentScroll;
     });
-</script>
+</script> -->
 
 </body>
 

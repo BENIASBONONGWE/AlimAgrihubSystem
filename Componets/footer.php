@@ -1,93 +1,113 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Footer Design</title>
+    <title>Za-Alimi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+    <link href="images/Logo.png" rel="icon">
+    <link href="images/Logo.png" rel="apple-touch-icon">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-around;
-            background-color: green;
-            color: #fff;
+      /* Add your CSS styles here */
+      .footer {
+            background-color: #f2f2f2;
             padding: 20px;
+            text-align: center;
         }
 
-        .column {
-            width: 27%;
+        .footer-container {
+            background-color: #ccc; /* Gray color for the container */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Add some padding */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out items */
+            align-items: center; /* Center items vertically */
         }
 
-        p {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .footer-logo {
+            max-width: 100px; /* Adjust the size of the logo */
+            padding-bottom: 40px;
+        }
+
+        .quick-links {
+            flex-grow: 1; /* Take up remaining space */
+        }
+
+        .get-in-touch {
+            text-align: right; /* Align to the right */
+        }
+        .contact-details {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .contact-details p {
+            margin-left: 10px;
+        }
+         /* Color the photo icons to blue */
+         .contact-details i {
+            color: blue;
+        }
+         /* Remove underlines from links */
+         .quick-links a {
             text-decoration: none;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Add hover effect */
-        a:hover {
-            color: #ffd700; /* Change to your desired hover color */
+            color: blue;
         }
     </style>
 </head>
 
 <body>
-    <footer>
-        <div class="column">
-            <p>ZA-ALIMI</p>
-            <ul>
-			<li><a href="home.php">Home</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="chartroom.php">ChartRoom</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
-				
-            </ul>
-        </div>
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and company details -->
+            <div>
+                <img src="images/Logo.png" alt="Za-Alimi Logo" class="footer-logo">
+                <p>Za-Alimi agri-hub management system is a comprehensive platform aimed </p>
+            </div>
 
-        <div class="column">
-            <p>ANIMALS</p>
-            <ul>
-                <li><a href="goat_details.php">Goats</a></li>
-                <li><a href="guineafowl_details.php">Guineafowl</a></li>
-                <li><a href="pig_details.php">Pig</a></li>
-				<li><a href="cattle_details.php">Cattle</a></li>
-                <li><a href="rabbit_details.php">Rabbit</a></li>
-                <li><a href="chicken_details.php">chicken</a></li>
-                <li><a href="ducks_details.php">Duck</a></li>
-            </ul>
-        </div>
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <p style="color: green; font-size: 20px; flex-grow: 1;
+            font-weight: bold;">Quick Links:</p>
+                <p><a href="home.php">Home</a> | <a href="about.php">About Us</a> | <a href="edu.php">Education</a> | <a href="animal.php">Animals</a> | <a href="Plants.php">Plants</a></p>
+            </div>
 
-        <div class="column">
-            <p>CROPS</p>
-            <ul>
-                <li><a href="soya_details.php">Soya Beans</a></li>
-                <li><a href="maize_deteals.php">Maize</a></li>
-				<li><a href="groundnuts_details.php">Groundnuts</a></li>
-                <li><a href="irishpotataos_details.php">Irish Potatoes</a></li>
-                <li><a href="tobacco_details.php">Tobacco</a></li>
-                <li><a href="tea_details.php">Tea</a></li>
-            </ul>
+            <!-- Get In Touch -->
+            <div class="get-in-touch">
+                <p style= "color: green; font-size: 20px; flex-grow: 1;
+            font-weight: bold;">Get In Touch:</p>
+                <div class="contact-details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Street, Area, Lilongwe, Malawi</p>
+                </div>
+                <div class="contact-details">
+                    <i class="fas fa-phone"></i>
+                    <p>+265 9939 24405</p>
+                </div>
+                <div class="contact-details">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@zaalimihub.com</p>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>&copy; 2024 Za-Alimi All rights reserved</p>
         </div>
     </footer>
+    </footer>
+    <!-- Footer Ends Here-->
+    </div>
 </body>
-<marquee> &copy; Za-Alimi agrihub <?php echo date('Y'); ?> </marquee>
 
 </html>
+
+

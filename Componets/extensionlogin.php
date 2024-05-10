@@ -36,7 +36,7 @@
       font-size: 14px;
     }
     input[type="submit"] {
-      background-color: #007bff;
+      background-color: green;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -45,18 +45,34 @@
       transition: background-color 0.3s ease;
     }
     input[type="submit"]:hover {
-      background-color: #0056b3;
+      background-color: green;
     }
     .register-link {
       text-decoration: none;
-      color: #007bff;
+      color: green;
       display: block;
       text-align: center;
       margin-top: 20px;
     }
+  .logo {
+      height: 150px;
+      width: 150px;
+      padding-left: 750px;
+    }
+
+    .navbar-brand {
+      margin-left: 5rem;
+    }
+
+    .secondary-logo {
+      margin-left: 5rem;
+    }
+   
   </style>
 </head>
-<body>
+<div class="secondary-logo">
+            <img src="images/Logo1.png" alt="Another Logo" class="logo">
+        </div>
   
   <form action="extension_login.php" method="post">
   <h2>Extension Worker Login</h2>
@@ -75,4 +91,5 @@
   </form>
   
 </body>
+<?php include ("footer.php");  ?>
 </html>

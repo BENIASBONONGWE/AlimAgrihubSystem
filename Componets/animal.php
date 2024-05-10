@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animal Farming Information</title>
+  <title>Animals Section</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="aboutus.css" rel="stylesheet">
+  <link href="body.css" rel="stylesheet">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384"></script>
+
+
+  <!-- Favicons -->
+  <link href="images/Logo.png" rel="icon">
+  <link href="images/Logo.png" rel="apple-touch-icon">
   <style>
     .container {
       max-width: 1200px;
@@ -52,25 +64,27 @@
       text-decoration: none; 
       color: green;
     }
+
+    .banner {
+      background-image: url('images/3cattles.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh; /* Set the height to 50% of the viewport height */
+    }
+
+    .upper-section {
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
 
 <?php include("nav.php"); ?>
-<br></br>
-<center>
-  <p1><b>The page is about providing information on various animals commonly used in agriculture</b></p1>.
-  <p>It includes sections for different types of animals. Don't worry, check information regarding breeds,</p>
-  <p>pest and disease control, and how you can take care of your animals.</p>
-</center>
+<div class="banner"></div>
 
+<div class="upper-section"></div>
 <center>
-<p><i style="color: green;">Check it out.</i></p>
-</center>
-
-<center>
-    <br></br>
-  <b><h3 style="color:black;">ANIMAL SECTION</h3></b>
+  <b><h3 style="color:green;">FARMED ANIMALS</h3></b>
   <br></br>
 </center>
 

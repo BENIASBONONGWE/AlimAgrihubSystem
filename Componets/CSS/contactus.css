@@ -45,7 +45,7 @@
     margin: 10px auto;
     padding: 15px 30px;
     outline: none;
-    background-color: chocolate; /* Yellow background color */
+    background-color:green; /* Yellow background color */
     font-size: 14px;
     color: #fff; /* Text color */
     border-radius: 40px; /* Makes the button oval */
@@ -55,12 +55,3 @@
 }
 
 
-
-
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 3e9622dad6b929a432006cf1d21a0cc14c5360ba

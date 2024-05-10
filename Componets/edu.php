@@ -65,9 +65,9 @@ color: green;
   <div class="container-fluid mt-4 mb-4">
     <!-- Image at the top -->
     <div>
-      <div style="background-image: url('images/home1.jpeg');  background-position: center; height: 500px;  width: 100%;">
+      <div style="background-image: url('images/agriculture-education.jpg');  background-position: center; height: 500px;  width: 100%;">
         <div class="centered-text">
-          <h3>LEARNING SECTION</h3>
+          <!-- <h3>LEARNING SECTION</h3> -->
         </div>
       </div>
     </div>

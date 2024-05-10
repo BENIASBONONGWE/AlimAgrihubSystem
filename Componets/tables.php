@@ -75,11 +75,6 @@ CREATE TABLE IF NOT EXISTS videos (
     description TEXT,
     video_id VARCHAR(255) NOT NULL
 );
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
 CREATE TABLE payemproyee (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -94,13 +89,7 @@ CREATE TABLE pesticides (
     video_id VARCHAR(20) NOT NULL,
     time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLE farmbudget (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    video_id VARCHAR(20) NOT NULL,
-    time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+
 CREATE TABLE caring (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -115,14 +104,6 @@ CREATE TABLE prevation (
     video_id VARCHAR(20) NOT NULL,
     time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-
 CREATE TABLE cattle_db (
     section_id INT AUTO_INCREMENT PRIMARY KEY,
     section_name VARCHAR(255) NOT NULL,
@@ -178,13 +159,7 @@ CREATE TABLE rabbit_db (
     content TEXT NOT NULL,
     video_path VARCHAR(255)
 );
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    phone VARCHAR(15) UNIQUE NOT NULL,
-    type ENUM('admin', 'user') NOT NULL
-);
+
 CREATE TABLE farmers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -195,10 +170,34 @@ CREATE TABLE farmers (
     dob DATE,
     gender ENUM('male', 'female', 'other') NOT NULL
 );
-CREATE TABLE campaigns (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    campaign_type VARCHAR(255) NOT NULL,
-    description TEXT,
-    target_audience VARCHAR(255),
-    scheduled_date DATE
+CREATE TABLE extension_workers (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    email VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    employee_number VARCHAR(50),
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE messages (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE weather_data (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    city_name VARCHAR(255) NOT NULL,
+    country_code VARCHAR(255) NOT NULL,
+    date DATE,
+    time TIME,
+    weather_description VARCHAR(255),
+    temperature FLOAT,
+    humidity INT(11),
+    rainfall FLOAT,
+    wind_speed FLOAT,
+    wind_direction INT(11),
+    farming_advice TEXT
 );

@@ -44,10 +44,27 @@
         .error {
             color: red;
         }
+        .logo {
+      height: 150px;
+      width: 150px;
+      padding-left: 750px;
+    }
+
+    .navbar-brand {
+      margin-left: 5rem;
+    }
+
+    .secondary-logo {
+      margin-left: 5rem;
+    }
     </style>
 </head>
 <body>
-    <h2>Farmer Registration</h2>
+    
+    <div class="secondary-logo">
+            <img src="images/Logo1.png" alt="Another Logo" class="logo">
+        </div>
+        <h2>Farmer Registration</h2>
     <form action="submit_registration.php" method="post">
         <label for="full_name">Full Name:</label>
         <input type="text" id="full_name" name="full_name" required>
@@ -81,4 +98,5 @@
         <input type="submit" value="Register">
     </form>
 </body>
+<?php include ("footer.php");  ?>
 </html>

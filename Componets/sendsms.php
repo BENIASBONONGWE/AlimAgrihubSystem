@@ -68,11 +68,27 @@
     cursor: pointer;
     text-decoration: none; /* Remove underline for anchor tag */
 }
+.logo {
+      height: 150px;
+      width: 150px;
+      padding-left: 750px;
+    }
 
+    .navbar-brand {
+      margin-left: 5rem;
+    }
+
+    .secondary-logo {
+      margin-left: 5rem;
+    }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+<div class="secondary-logo">
+            <img src="images/Logo1.png" alt="Another Logo" class="logo">
+        </div>
     <div class="container">
         <h2>Send SMS</h2>
         <form method="post" action="send_sms.php" id="smsForm">
@@ -214,7 +230,8 @@
 
     </div>
 </body>
+<a href="AnimalsInsert.php" class="button">AnimalsInsert</a>
 <a href="plan_campaign.php" class="button">Plan Campaign</a>
 
-
+<?php include ("footer.php");  ?>
 </html>
