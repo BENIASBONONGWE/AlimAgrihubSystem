@@ -3,63 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seed Calculator - Result</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Feed Calculator Result</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Seed Calculator - Result</h2>
-        <?php
+    <h1>Feed Calculator Result</h1>
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+    <?php
+    // Retrieve form data
+    $animalSpecies = $_POST['animalSpecies'];
+    $age = (int)$_POST['age'];
+    $weight = (float)$_POST['weight'];
+    $activityLevel = $_POST['activityLevel'];
+    $healthStatus = $_POST['healthStatus'];
 
-$crop = $_POST['crop'];
-$calculation = $_POST['calculation'];
-$seed_spacing = isset($_POST['seed_spacing']) ? $_POST['seed_spacing'] : null;
-$land_size = isset($_POST['land_size']) ? $_POST['land_size'] : null;
-$seed_density = isset($_POST['seed_density']) ? $_POST['seed_density'] : null;
-$seed_weight = isset($_POST['seed_weight']) ? $_POST['seed_weight'] : null;
+    // Perform feed calculation based on selected species and input values
+    $dailyFeed = calculateDailyFeed($animalSpecies, $age, $weight, $activityLevel, $healthStatus);
+    $monthlyFeed = $dailyFeed * 30; // Assuming 30 days in a month
 
+    // Display feed calculation results
+    echo "<h2>Feed Calculation for $animalSpecies</h2>";
+    echo "<p><strong>Daily Feed:</strong> $dailyFeed kg</p>";
+    echo "<p><strong>Monthly Feed:</strong> $monthlyFeed kg</p>";
 
-echo "<p>Selected Crop: " . ucfirst($crop) . "</p>";
-echo "<p>Selected Calculation: " . str_replace("_", " ", ucfirst($calculation)) . "</p>";
-switch ($calculation) {
-    case 'seed_weight':
-        if ($seed_spacing && $land_size && $seed_density) {
-          
-            $seed_weight = ($seed_spacing * $seed_density * $land_size) / 1000;
-            echo "<p>Calculated Seed Weight (kg): " . number_format($seed_weight, 2) . "</p>";
+    // Provide simple guidelines or explanations for less educated farmers
+    echo "<h3>Feed Information:</h3>";
+    echo "<p>For $animalSpecies, you should provide this amount of feed every day to ensure proper nutrition.</p>";
+    echo "<p>For the best results, consult with a local veterinarian or agricultural extension service for specific feeding recommendations based on your animal's needs and conditions.</p>";
+
+    // Function to calculate daily feed based on animal species, age, weight, activity level, and health status
+    function calculateDailyFeed($species, $age, $weight, $activityLevel, $healthStatus) {
+        // Here you can implement specific calculation rules for each animal species
+        // For demonstration, let's assume a simple calculation based on weight and age
+
+        switch ($species) {
+            case "Cow":
+                // Implement calculation for Cow
+                // Example: Daily feed is 2% of weight
+                return $weight * 0.02;
+            case "Horse":
+                // Implement calculation for Horse
+                // Example: Daily feed is 1.5% of weight
+                return $weight * 0.015;
+            case "Chicken":
+                // Implement calculation for Chicken
+                // Example: Daily feed is 0.1 kg per chicken
+                return 0.1;
+            case "Pig":
+                // Implement calculation for Pig
+                // Example: Daily feed is 3% of weight
+                return $weight * 0.03;
+            case "Dog":
+                // Implement calculation for Dog
+                // Example: Daily feed is 1% of weight
+                return $weight * 0.01;
+            case "Cat":
+                // Implement calculation for Cat
+                // Example: Daily feed is 0.5% of weight
+                return $weight * 0.005;
+            case "Rabbit":
+                // Implement calculation for Rabbit
+                // Example: Daily feed is 5% of weight
+                return $weight * 0.05;
+            case "Fish":
+                // Implement calculation for Fish
+                // Example: Daily feed is 0.2 kg per fish
+                return 0.2;
+            case "Sheep":
+                // Implement calculation for Sheep
+                // Example: Daily feed is 1.5% of weight
+                return $weight * 0.015;
+            case "Goat":
+                // Implement calculation for Goat
+                // Example: Daily feed is 2% of weight
+                return $weight * 0.02;
+            default:
+                return 0; // Default to 0 if species is not recognized
         }
-        break;
-    case 'seed_spacing':
-        if ($seed_weight && $land_size && $seed_density) {
-            $seed_spacing = ($seed_weight * 1000) / ($seed_density * $land_size);
-            echo "<p>Calculated Seed Spacing (cm): " . number_format($seed_spacing, 2) . "</p>";
-        }
-        break;
-    case 'land_size':
-        if ($seed_weight && $seed_spacing && $seed_density) {
-            $land_size = ($seed_weight * 1000) / ($seed_spacing * $seed_density);
-            echo "<p>Calculated Land Size (hectares): " . number_format($land_size, 2) . "</p>";
-        }
-        break;
-    case 'seed_density':
-        if ($seed_weight && $seed_spacing && $land_size) {
-           
-            $seed_density = ($seed_weight * 1000) / ($seed_spacing * $land_size);
-            echo "<p>Calculated Seed Density (seeds/m²): " . number_format($seed_density, 2) . "</p>";
-        }
-        break;
-    default:
-        echo "<p>Invalid Calculation Selected</p>";
-        break;
-}
-?>
+    }
+    ?>
 
-        <form action="seed.php">
-            <button type="submit">Back to Calculator</button>
-        </form>
-        </div>
+    <p><a href="feed_calculator.php">Back to Calculator</a></p>
 </body>
-</htm
+</html>
+

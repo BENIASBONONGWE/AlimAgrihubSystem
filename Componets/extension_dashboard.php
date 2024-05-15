@@ -11,8 +11,12 @@ if(isset($_SESSION['user_location'])) {
 
     try {
         // Establish database connection
-        $pdo = new PDO("mysql:host=localhost;dbname=phpland", "root", "");
+        include('db.php');
 
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
         // Set PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

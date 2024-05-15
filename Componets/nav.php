@@ -8,7 +8,7 @@
     <style>
         /* Styles for the top bar */
         .top-bar {
-            background-color:#70b72d;  /* Change background color as needed */
+            background-color: #066614;  /* Change background color as needed */
             padding: 10px;
             text-align: right;  /* Align links to the right */
             position: fixed;
@@ -27,7 +27,7 @@
         }
 
         .top-bar a:hover {
-            background-color: #70b72d;  /* Change hover color as needed */
+            background-color: #066614;  /* Change hover color as needed */
         }
 
         /* Styles for the main navigation bar */
@@ -70,7 +70,7 @@
 <body>
 
 <div class="top-bar" id="topBar">
-    <a href="extensionlogin.php">Admin</a>
+    <a href="extensionlogin.php">Extension Workers login</a>
     <a href="head.php">Wealther</a>
     <a href="halo.php">Compaigns</a>
     <a href="farmer_register.php">farmer Registration</a>
@@ -83,12 +83,13 @@
     <a class="logo" href="#">
         <img src="images/Logo.png" alt="Logo">
     </a>
-    <a href="home.php">HOME</a>
-    <a href="contactus.php">CONTACT US</a>
-    <a href="about.php">ABOUT</a>
-    <a href="edu.php">EDUCATION</a>
-    <a href="animal.php">ANIMALS</a>
-    <a href="Plants.php">PLANTS</a>
+    <a href="home.php" style="font-weight: bolder;">HOME</a>
+    <a href="contactus.php" style="font-weight: bolder;">CONTACT US</a>
+    <a href="about.php" style="font-weight: bolder;">ABOUT</a>
+    <a href="edu.php" style="font-weight: bolder;">FARMERS HANDBOOK</a>
+    <a href="animal.php" style="font-weight: bolder;">LIVESTOCKS</a>
+    <a href="Plants.php" style="font-weight: bolder;">CROPS</a>
+    <a href="agritrading.php" style="font-weight: bolder;">AGRITRADING</a>
 </div>
 
 <!-- <script>

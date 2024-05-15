@@ -12,7 +12,7 @@
 <body>
 <main>
 
-  <p class = "agriservices">We Provide AgriServices</p>  
+  <p class = "agriservices">WE PROVIDE AGRISERVICES</p>  
   <section id="animal">
     <div class="container">
       <div class="grid-3">

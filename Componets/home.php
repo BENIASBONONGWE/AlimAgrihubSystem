@@ -50,15 +50,15 @@
     }
     .btn-brown {
       color: white; 
-      background-color:#70b72d; 
-      border-color: #70b72d;
+      background-color:#066614; 
+      border-color: #066614;
       padding: 10px;  
     }
 
     .btn-brown1 {
       color: white; 
-      background-color:#70b72d; 
-      border-color: #70b72d;
+      background-color:#066614; 
+      border-color: #066614;
       padding: 10px;  
     }
 
@@ -109,7 +109,7 @@
 .learn-more-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #70b72d; /* Green color */
+    background-color: #066614; /* Green color */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -117,8 +117,12 @@
     align-items: center;
 }
 .learn-more-btn:hover {
-  background-color: #70b72d;
+  background-color: #066614;
   color: white;
+}
+/* Adjust sliding interval to 4 minutes */
+.carousel-item {
+  transition: transform 6s ease-in-out; /* Adjust the transition duration to 4 minutes */
 }
   </style>
   </head>
@@ -138,7 +142,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="images/clouds-farm.png" class="d-block w-100" alt="...">
+        <img src="images/happywomen.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5>Discover The Products</h5>
           <p>Explore on Animal production</p>
@@ -146,7 +150,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="images/cattle.jpg" class="d-block w-100" alt="...">
+        <img src="images/nice.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption">
           <h5>Contact Us</h5>
           <p>Get in touch with us for more information</p>
@@ -187,50 +191,7 @@
 </section>
 
 <!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials section-bg">
-      <div class="container">
 
-        <div>
-          <h2 style="color:#70b72d; font-size: 20 px;">TESTIMONIES</h2>
-          <p>Success Stories - Stories from the Field</p>
-        </div>
-
-        <div>
-          <div>
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="images/testphoto.jpg" class="testimonial-img" alt="">
-                  <h3>James Chikoti</h3>
-                  <h4>Ceo & Founder of NasFam</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    "Many shared a negative vision of agriculture, but over time members of the Za-Alimi have been gradually conquered, agriculture is our new love and a hope for our life"
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="images/testphoto1.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    "My neighbours contact me whenever they have a problem in their field, and I am able to give them an advice, thanks to Za-Alimi Management System"
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
 
 <?php include ("footer.php");  ?>
 </html>

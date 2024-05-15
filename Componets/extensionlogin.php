@@ -50,9 +50,8 @@
     .register-link {
       text-decoration: none;
       color: green;
-      display: block;
-      text-align: center;
-      margin-top: 20px;
+      display: inline-block;
+      margin-top: 10px;
     }
   .logo {
       height: 150px;
@@ -75,7 +74,7 @@
         </div>
   
   <form action="extension_login.php" method="post">
-  <h2>Extension Worker Login</h2>
+  
     <label for="fullName">Full Name:</label><br>
     <input type="text" id="fullName" name="fullName" required><br>
     <label for="email">Email Address:</label><br>
@@ -87,9 +86,11 @@
     
   
     
-    <h3>Don't have an account?<a href="extension_registering.php" class="register-link">Register here</a></h3>
+    
   </form>
   
 </body>
+<br>
+<br>
 <?php include ("footer.php");  ?>
 </html>

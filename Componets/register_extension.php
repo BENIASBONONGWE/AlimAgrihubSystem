@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Establish database connection
         include('db.php');
 
+        $pdo = new PDO("mysql:host=localhost;dbname=phpland", "root", "");
 
         // Set PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -37,19 +37,19 @@
   .animal h3 {
     margin-top: 10px;
     text-decoration: none; /* Remove underlines */
-    color: green;
+    color: #066614;
   }
   
   .animal h5 {
     margin-top: 5px;
     text-decoration: none; /* Remove underlines */
-    color: green;
+    color: #066614;
   }
   /* Style the button to look like a button */
   .button {
       display: inline-block;
       padding: 4px 20px;
-      background-color: #70b72d; /* Button background color */
+      background-color: #066614; /* Button background color */
       color: wheat; /* Button text color */
       text-decoration: none; /* Remove underline from link */
       border: none; /* Remove border */
@@ -59,11 +59,11 @@
 
  
   .button:hover {
-      background-color: green; /* Darker shade of the button color */
+      background-color: #066614; /* Darker shade of the button color */
   }
   .agriservices {
     text-align: center;
-    background-color: #70b72d; /* Green color */
+    background-color: #066614; /* Green color */
     color: white;
     padding: 20px
    

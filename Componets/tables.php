@@ -1,9 +1,4 @@
-CREATE TABLE IF NOT EXISTS caring (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    video_id VARCHAR(50) NOT NULL
-);
+
 CREATE TABLE IF NOT EXISTS cassava_db (
     section_id INT AUTO_INCREMENT PRIMARY KEY,
     section_name VARCHAR(255) NOT NULL,

@@ -78,7 +78,7 @@
 <body>
 
   <form action="register_extension.php" method="post" enctype="multipart/form-data">
-  <h2>Extension Worker Registration</h2>
+ 
  
     <label for="fullName">Full Name:</label><br>
     <input type="text" id="fullName" name="fullName" required><br>
