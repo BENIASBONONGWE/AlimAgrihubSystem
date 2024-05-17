@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,20 +61,37 @@
         input[type="submit"]:hover {
             background-color: green;
         }
+        /* styles.css */
+
+.admin-dashboard-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+   
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    right: 0px;
+}
+
+.admin-dashboard-link:hover {
+    background-color: #0056b3;
+}
+
     </style>
 </head>
 <body>
     
     <form action="sms.php" method="post">
-    <h2>Send SMS</h2>
-    <label for="recipient_type">Select Recipient Type:</label><br>
-            <select id="recipient_type" name="recipient_type">
-                <option value="">Select Recipient Type</option>
-                <option value="all">All Farmers</option>
-                <option value="crop">Crop Farmers</option>
-                <option value="animal">Animal Farmers</option>
-                <option value="other">Other (Input Number)</option>
-            </select>
+        <h2>Send SMS</h2>
+        <label for="recipient_type">Select Recipient Type:</label><br>
+        <select id="recipient_type" name="recipient_type">
+            <option value="">Select Recipient Type</option>
+            <option value="all">All Farmers</option>
+            <option value="crop">Crop Farmers</option>
+            <option value="animal">Animal Farmers</option>
+            <option value="other">Other (Input Number)</option>
+        </select>
         
         <label for="phoneNumber">Enter Phone Number:</label><br>
         <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{12}" maxlength="12" required><br>
@@ -94,6 +112,9 @@
         <input type="submit" name="submit" value="Send SMS">
     </form>
 
+    <!-- Button for Admin Dashboard -->
+    <a href="admin_dashboard.php" class="admin-dashboard-link">Admin Dashboard</a>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -168,5 +189,4 @@
             });
         });
     </script>
-</body>
 </html>
