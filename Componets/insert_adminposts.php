@@ -20,6 +20,6 @@ if (mysqli_query($conn, $query)) {
 
 mysqli_close($conn);
 
-header("Location: admin_dashboard.php");
+header("Location: extentiondashbord.php");
 exit();
 ?>

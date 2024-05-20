@@ -7,14 +7,9 @@
     <title>Send SMS</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f8f9fa;
+            padding-top: 50px; /* Add space at the top for better alignment */
+            font-family: Arial, sans-serif; /* Set a fallback font family */
         }
 
         form {
@@ -22,30 +17,34 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px; /* Adjust width as needed */
+            max-width: 400px; /* Adjust width as needed */
+            margin: 0 auto; /* Center the form horizontally */
         }
 
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px; /* Add some space below the heading */
         }
 
         label {
             font-weight: bold;
             margin-bottom: 5px;
+            display: block; /* Ensure labels are on their own line */
         }
 
         select,
         input[type="tel"],
         textarea,
         input[type="submit"] {
-            width: calc(100% - 22px);
+            width: calc(100% - 22px); /* Adjust width to accommodate padding and borders */
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
             font-size: 16px;
+            outline: none; /* Remove default outline on focus */
         }
 
         select[multiple] {
@@ -59,32 +58,30 @@
         }
 
         input[type="submit"]:hover {
-            background-color: green;
+            background-color: darkgreen; /* Darken the background color on hover */
         }
-        /* styles.css */
 
-.admin-dashboard-link {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-   
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    right: 0px;
-}
+        .admin-dashboard-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px; /* Add some space above the link */
+            text-align: center;
+        }
 
-.admin-dashboard-link:hover {
-    background-color: #0056b3;
-}
-
+        .admin-dashboard-link:hover {
+            background-color: #0056b3; /* Darken the background color on hover */
+        }
     </style>
 </head>
 <body>
-    
     <form action="sms.php" method="post">
         <h2>Send SMS</h2>
-        <label for="recipient_type">Select Recipient Type:</label><br>
+        <label for="recipient_type">Select Recipient Type:</label>
         <select id="recipient_type" name="recipient_type">
             <option value="">Select Recipient Type</option>
             <option value="all">All Farmers</option>
@@ -93,28 +90,27 @@
             <option value="other">Other (Input Number)</option>
         </select>
         
-        <label for="phoneNumber">Enter Phone Number:</label><br>
-        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{12}" maxlength="12" required><br>
+        <label for="phoneNumber">Enter Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{12}" maxlength="12" required>
         
-        <label for="campaign">Select Campaign:</label><br>
+        <label for="campaign">Select Campaign:</label>
         <select id="campaign_select" name="campaign" required>
             <option value="">Select campaign</option>
-        </select><br>
+        </select>
         
-        <label for="weather">Select Weather:</label><br>
+        <label for="weather">Select Weather:</label>
         <select id="weather_select" name="weather" required>
             <option value="">Select weather</option>
-        </select><br>
+        </select>
         
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         
-        <input type="submit" name="submit" value="Send SMS">
+        <input type="submit" value="Send Message">
     </form>
 
-    <!-- Button for Admin Dashboard -->
-    <a href="admin_dashboard.php" class="admin-dashboard-link">Admin Dashboard</a>
     
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -189,4 +185,5 @@
             });
         });
     </script>
+</body>
 </html>

@@ -1,36 +1,39 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['submit'])) {
-        // Retrieve phone number and message from the form
-        $phoneNumber = $_POST['phoneNumber'];
-        $message = $_POST['message'];
-        // API parameters
-        $apiKey = "g50Fa2AlRQziZf6m2dDy";
-        $password = "yamikani2000";
-        $from = "WGIT";
-        // Construct the API URL
+    // Retrieve data from the form
+    $recipientType = $_POST['recipient_type'];
+    $phoneNumbers = $_POST['phone'] ?? [];
+    $phoneInput = $_POST['phone_input'] ?? '';
+    $message = $_POST['message'];
+    
+    // Combine phone numbers from multiple select and input
+    if ($recipientType === 'other' && !empty($phoneInput)) {
+        $phoneNumbers = explode(', ', $phoneInput);
+    }
+
+    // Prepare the message and phone numbers
+    $apiKey = "g50Fa2AlRQziZf6m2dDy";
+    $password = "yamikani2000";
+    $from = "WGIT";
+    
+    foreach ($phoneNumbers as $phoneNumber) {
         $url = "https://telcomw.com/api-v2/text?message=" . urlencode($message) .
-            "&phone=" . urlencode($phoneNumber) .
-            "&api_key=" . urlencode($apiKey) .
-            "&password=" . urlencode($password) .
-            "&from=" . urlencode($from);
-        
-        // Make GET request to the API URL using file_get_contents
+               "&phone=" . urlencode($phoneNumber) .
+               "&api_key=" . urlencode($apiKey) .
+               "&password=" . urlencode($password) .
+               "&from=" . urlencode($from);
+
         $response = file_get_contents($url);
         if ($response !== false) {
-            // Decode JSON response
             $responseData = json_decode($response, true);
-            // Check if the message was sent successfully
             if ($responseData && isset($responseData['status']) && $responseData['status'] == 'success') {
-                echo "Message sent successfully";
+                echo "Message sent successfully to $phoneNumber<br>";
             } else {
-                echo "Failed to send message";
+                echo "Failed to send message to $phoneNumber<br>";
             }
         } else {
-            echo "Failed to connect to Telcomw API";
+            echo "Failed to connect to Telcomw API for $phoneNumber<br>";
         }
     }
 }
 ?>
-
-

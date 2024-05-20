@@ -85,14 +85,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
-<div class="secondary-logo">
-            <img src="images/Logo1.png" alt="Another Logo" class="logo">
-        </div>
-        <h1 style="font-weight: bold; color: green; text-align:center; ">WELCOME TO EXTENSION WORKER DASHBOARD</h1>
     <div class="container">
         <h2>Send SMS</h2>
-        <form method="post" action="send_sms.php" id="smsForm">
+        <form method="post" action="sms.php" id="smsForm">
             <!-- Dropdown for selecting weather -->
             <label for="weather_select">Select Weather:</label><br>
             <select id="weather_select" style="width: 100%;">
@@ -230,12 +225,9 @@
 
 
     </div>
-    <h3 style="color: black; text-align:center; ">Want to recruit an extension worker? <a href="extension_registering.php" class="register-link">Register here</a></h3>
-
-    <a href="AnimalsInsert.php" class="button">AnimalsInsert</a>
-    <a href="plan_campaign.php" class="button">Plan Campaign</a>
+    
 </body>
 
 
-<?php include ("footer.php");  ?>
+
 </html>

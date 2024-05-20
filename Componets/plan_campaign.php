@@ -6,15 +6,10 @@
     <title>Plan Campaign</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0; /* Updated margin to zero */
-            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 20px; /* Add space at the top for better alignment */
+            font-family: Arial, sans-serif; /* Set a fallback font family */
             background-image: url('https://d2fl3xywvvllvq.cloudfront.net/wp-content/uploads/2015/07/Planning2-e1554986531973.jpg');
-            background-size: cover;
-            background-position: center;
         }
 
         form {
@@ -24,6 +19,12 @@
             border-radius: 5px;
             background-color: #f9f9f9;
             text-align: center;
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space below the heading */
         }
 
         label {
@@ -35,12 +36,13 @@
         input[type="text"],
         input[type="date"],
         textarea {
-            width: 100%;
+            width: calc(100% - 16px); /* Adjust width to accommodate padding and borders */
             padding: 8px;
             margin: 6px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            outline: none; /* Remove default outline on focus */
         }
 
         input[type="submit"] {
@@ -60,7 +62,7 @@
 </head>
 <body>
     <div>
-        <h2>Plan Campaign</h2> <!-- Removed inline style -->
+        <h2>Plan Campaign</h2>
         <form action="process_campaign.php" method="POST">
             <label for="campaign_type">Campaign Type:</label>
             <input type="text" id="campaign_type" name="campaign_type" required>
