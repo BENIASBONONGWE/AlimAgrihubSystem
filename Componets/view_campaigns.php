@@ -1,16 +1,5 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // Default username for XAMPP MySQL setup
-$password = ""; // Leave empty if no password is set
-$database = "phpland"; // Your database name
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include_once("db.php");
 // Fetch campaigns from the database
 $sql = "SELECT * FROM campaigns";
 $result = $conn->query($sql);
@@ -24,16 +13,12 @@ $result = $conn->query($sql);
     <title>View Campaigns</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
         table {
-            width: 80%;
+            width: 100%;
             border-collapse: collapse;
         }
 
@@ -57,6 +42,14 @@ $result = $conn->query($sql);
 
         h2 {
             text-align: center;
+            margin-top: 20px; /* Added margin for spacing */
+        }
+        
+        /* Adjustments for smaller screens */
+        @media screen and (max-width: 600px) {
+            table, th, td {
+                font-size: 14px; /* Reduce font size for better readability on smaller screens */
+            }
         }
     </style>
 </head>

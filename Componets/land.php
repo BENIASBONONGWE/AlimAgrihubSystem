@@ -15,19 +15,22 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px;
+            padding: 20px;
             display: flex;
+            flex-wrap: wrap;
         }
 
         .sidebar {
-            flex: 1;
+            flex: 1 1 100%;
             background-color: #f1f1f1;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .videos {
-            flex: 3;
-            margin-left: 20px;
+            flex: 1 1 100%;
+            margin-top: 20px;
+            box-sizing: border-box;
         }
 
         footer {
@@ -42,6 +45,7 @@
             cursor: pointer;
             border: 1px solid #ccc;
             padding: 10px;
+            box-sizing: border-box;
         }
 
         .video-details {
@@ -52,14 +56,36 @@
             font-size: 16px;
             line-height: 1.5;
         }
+
+        @media(min-width: 768px) {
+            .sidebar {
+                flex: 1 1 25%;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+
+            .videos {
+                flex: 1 1 75%;
+                margin-left: 20px;
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .sidebar {
+                flex: 1 1 20%;
+            }
+
+            .videos {
+                flex: 1 1 80%;
+            }
+        }
     </style>
-    <?php include ("nav.php");  ?>
 </head>
 <body>
 
-<header>
-    
-</header>
+<?php include ("nav.php"); ?>
+
+<header></header>
 
 <div class="container">
     <aside class="sidebar sticky-top">

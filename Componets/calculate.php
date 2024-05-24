@@ -1,88 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed Calculator Result</title>
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="calculate.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <h1>Feed Calculator Result</h1>
+<?php
+include 'db.php';
 
-    <?php
-    // Retrieve form data
-    $animalSpecies = $_POST['animalSpecies'];
-    $age = (int)$_POST['age'];
-    $weight = (float)$_POST['weight'];
-    $activityLevel = $_POST['activityLevel'];
-    $healthStatus = $_POST['healthStatus'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $crop_id = $_POST['crop'];
+    $land_size_acres = $_POST['land_size']; // Land size in acres
 
-    // Perform feed calculation based on selected species and input values
-    $dailyFeed = calculateDailyFeed($animalSpecies, $age, $weight, $activityLevel, $healthStatus);
-    $monthlyFeed = $dailyFeed * 30; // Assuming 30 days in a month
+    if ($crop_id == 'other') {
+        // Use the custom input values
+        $crop_name = $_POST['other_name'];
+        $crop_type = $_POST['other_type'];
+        $spacing = $_POST['other_spacing'];
+        $germination_rate = $_POST['other_germination_rate'];
+        $seeds_per_kg = $_POST['other_seeds_per_kg'];
 
-    // Display feed calculation results
-    echo "<h2>Feed Calculation for $animalSpecies</h2>";
-    echo "<p><strong>Daily Feed:</strong> $dailyFeed kg</p>";
-    echo "<p><strong>Monthly Feed:</strong> $monthlyFeed kg</p>";
+        // Validate custom input values
+        if (empty($crop_name) || empty($crop_type) || $spacing <= 0 || $germination_rate <= 0 || $seeds_per_kg <= 0) {
+            die("Error: All fields for 'Other' crop must be filled out and values must be greater than zero.");
+        }
+    } else {
+        // Fetch crop details from the database
+        $sql = "SELECT * FROM crop WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $crop_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $crop = $result->fetch_assoc();
 
-    // Provide simple guidelines or explanations for less educated farmers
-    echo "<h3>Feed Information:</h3>";
-    echo "<p>For $animalSpecies, you should provide this amount of feed every day to ensure proper nutrition.</p>";
-    echo "<p>For the best results, consult with a local veterinarian or agricultural extension service for specific feeding recommendations based on your animal's needs and conditions.</p>";
+        $crop_name = $crop['name'];
+        $crop_type = $crop['type'];
+        $spacing = $crop['spacing']; // in meters
+        $germination_rate = $crop['germination_rate']; // in percentage
+        $seeds_per_kg = $crop['seeds_per_kg']; // seeds per kilogram
 
-    // Function to calculate daily feed based on animal species, age, weight, activity level, and health status
-    function calculateDailyFeed($species, $age, $weight, $activityLevel, $healthStatus) {
-        // Here you can implement specific calculation rules for each animal species
-        // For demonstration, let's assume a simple calculation based on weight and age
-
-        switch ($species) {
-            case "Cow":
-                // Implement calculation for Cow
-                // Example: Daily feed is 2% of weight
-                return $weight * 0.02;
-            case "Horse":
-                // Implement calculation for Horse
-                // Example: Daily feed is 1.5% of weight
-                return $weight * 0.015;
-            case "Chicken":
-                // Implement calculation for Chicken
-                // Example: Daily feed is 0.1 kg per chicken
-                return 0.1;
-            case "Pig":
-                // Implement calculation for Pig
-                // Example: Daily feed is 3% of weight
-                return $weight * 0.03;
-            case "Dog":
-                // Implement calculation for Dog
-                // Example: Daily feed is 1% of weight
-                return $weight * 0.01;
-            case "Cat":
-                // Implement calculation for Cat
-                // Example: Daily feed is 0.5% of weight
-                return $weight * 0.005;
-            case "Rabbit":
-                // Implement calculation for Rabbit
-                // Example: Daily feed is 5% of weight
-                return $weight * 0.05;
-            case "Fish":
-                // Implement calculation for Fish
-                // Example: Daily feed is 0.2 kg per fish
-                return 0.2;
-            case "Sheep":
-                // Implement calculation for Sheep
-                // Example: Daily feed is 1.5% of weight
-                return $weight * 0.015;
-            case "Goat":
-                // Implement calculation for Goat
-                // Example: Daily feed is 2% of weight
-                return $weight * 0.02;
-            default:
-                return 0; // Default to 0 if species is not recognized
+        // Validate database values
+        if ($spacing <= 0 || $germination_rate <= 0 || $seeds_per_kg <= 0) {
+            die("Error: Invalid data for the selected crop.");
         }
     }
-    ?>
 
-    <p><a href="feed_calculator.php">Back to Calculator</a></p>
-</body>
-</html>
+    // Convert acres to hectares
+    $land_size_hectares = $land_size_acres * 0.404686; // 1 acre = 0.404686 hectares
 
+    // Assuming a square planting pattern
+    $plants_per_hectare = 10000 / ($spacing * $spacing);
+    $seeds_needed = $plants_per_hectare * $land_size_hectares / ($germination_rate / 100);
+    $kg_needed = $seeds_needed / $seeds_per_kg;
+
+    echo "<h1>Seed Calculator Results</h1>";
+    echo "<p>Crop: " . htmlspecialchars($crop_name) . " (" . htmlspecialchars($crop_type) . ")</p>";
+    echo "<p>Land Size: " . htmlspecialchars($land_size_acres) . " acres</p>"; // Display land size in acres
+    echo "<p>Land Size (converted to hectares): " . htmlspecialchars($land_size_hectares) . " hectares</p>";
+    echo "<p>Spacing: " . htmlspecialchars($spacing) . " meters</p>";
+    echo "<p>Germination Rate: " . htmlspecialchars($germination_rate) . "%</p>";
+    echo "<p>Seeds Needed: " . number_format($seeds_needed, 2) . " seeds</p>";
+    echo "<p>Seeds Needed: " . number_format($kg_needed, 2) . " kg</p>";
+}
+?>
+
+<?php
+$conn->close();
+?>

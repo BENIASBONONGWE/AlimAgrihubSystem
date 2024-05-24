@@ -1,6 +1,4 @@
-To make your website responsive and adaptable to all kinds of screens, including small phones, you can use media queries to adjust the layout and styling based on different screen sizes. Here's how you can modify your existing CSS code with media queries:
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 

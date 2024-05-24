@@ -13,7 +13,8 @@
         }
 
         form {
-            width: 400px;
+            width: 90%; /* Adjusted width for responsiveness */
+            max-width: 400px; /* Added max-width for larger screens */
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -53,6 +54,7 @@
             border-radius: 4px;
             cursor: pointer;
             margin-top: 10px; /* Added margin top for spacing */
+            width: 100%; /* Ensures the button takes full width */
         }
 
         input[type="submit"]:hover {

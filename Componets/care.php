@@ -15,19 +15,23 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 100px;
+            padding: 20px;
             display: flex;
+            flex-wrap: wrap;
         }
 
         .sidebar {
-            flex: 1;
+            flex: 1 1 100%;
             background-color: #f1f1f1;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .videos {
-            flex: 3;
-            margin-left: 20px;
+            flex: 1 1 100%;
+            margin-left: 0;
+            margin-top: 20px;
+            box-sizing: border-box;
         }
 
         footer {
@@ -51,6 +55,26 @@
         .video-details p {
             font-size: 16px;
             line-height: 1.5;
+        }
+
+        @media(min-width: 768px) {
+            .sidebar {
+                flex: 1 1 30%;
+                margin-right: 20px;
+            }
+            .videos {
+                flex: 1 1 70%;
+                margin-top: 0;
+            }
+        }
+
+        @media(min-width: 1024px) {
+            .sidebar {
+                flex: 1 1 25%;
+            }
+            .videos {
+                flex: 1 1 75%;
+            }
         }
     </style>
   <?php include("nav.php"); ?>

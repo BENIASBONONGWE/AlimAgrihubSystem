@@ -15,8 +15,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Admin Panel</h1>
+    <div class="container my-4">
+        <h1 class="text-center">Admin Panel</h1>
         <div class="form-group">
             <label for="sectionSelect">Select Section:</label>
             <select class="form-control" id="sectionSelect" onchange="showSection(this.value)">
@@ -93,7 +93,8 @@
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
-                echo "<table class='table'>";
+                echo "<div class='table-responsive'>";
+                echo "<table class='table table-striped'>";
                 echo "<thead><tr><th>Title</th><th>Author</th><th>Date</th><th>Action</th></tr></thead>";
                 echo "<tbody>";
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -106,6 +107,7 @@
                 }
                 echo "</tbody>";
                 echo "</table>";
+                echo "</div>";
             } else {
                 echo "No blog posts found.";
             }
@@ -123,7 +125,8 @@
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
-                echo "<table class='table'>";
+                echo "<div class='table-responsive'>";
+                echo "<table class='table table-striped'>";
                 echo "<thead><tr><th>Title</th><th>Description</th><th>Action</th></tr></thead>";
                 echo "<tbody>";
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -135,6 +138,7 @@
                 }
                 echo "</tbody>";
                 echo "</table>";
+                echo "</div>";
             } else {
                 echo "No cards found.";
             }

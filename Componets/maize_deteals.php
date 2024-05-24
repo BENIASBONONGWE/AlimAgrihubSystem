@@ -7,32 +7,41 @@
     <link rel="stylesheet" href="css/cattle_details.css" />
    
 
-    <!-- Add your custom styles here -->
-    <style>
+   <!-- Add your custom styles here -->
+   <style>
         /* Add custom styles for better readability */
-        
+
         .container1 {
             width: 98%; /* Adjust the width as needed */
-            margin:  0 auto; /* Center the container horizontally */
+            margin: 0 auto; /* Center the container horizontally */
             display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
         }
+
         .sidebar1 {
-            flex-basis: 20%;
-            margin-right: 100px; /* Add margin to the sidebar */
+            flex-basis: 100%; /* Take full width on small screens */
+            margin-bottom: 20px; /* Add margin to the bottom */
         }
+
         .main-content1 {
-            flex-basis: 50%;
+            flex-basis: 100%; /* Take full width on small screens */
         }
-        .sidebar h2, .main-content h2 {
+
+        .sidebar h2,
+        .main-content h2 {
             color: black;
         }
-        .sidebar1 p, .main-content1 p {
+
+        .sidebar1 p,
+        .main-content1 p {
             color: black;
         }
+
         .sidebar1 ul {
             list-style-type: none;
             padding: 0;
         }
+
         .sidebar1 li {
             margin-bottom: 5px;
             background-color: #f0f0f0;
@@ -40,12 +49,30 @@
             padding: 8px 12px;
             cursor: pointer;
         }
+
         .sidebar1 li a {
             text-decoration: none;
             color: #333;
         }
+
         .sidebar1 li:hover {
             background-color: #e0e0e0;
+        }
+
+        /* Media Query for tablets */
+        @media (min-width: 768px) {
+            .container1 {
+                display: flex;
+            }
+
+            .sidebar1 {
+                flex-basis: 30%; /* Take 30% of the container */
+                margin-right: 20px; /* Add margin to the right */
+            }
+
+            .main-content1 {
+                flex-basis: calc(70% - 20px); /* Take 70% of the container minus margin */
+            }
         }
     </style>
 </head>

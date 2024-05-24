@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Details</title>
     <link rel="stylesheet" href="css/cattle_details.css" />
-   
 
     <!-- Add your custom styles here -->
     <style>
         /* Add custom styles for better readability */
-        
+
         .container1 {
             width: 98%; /* Adjust the width as needed */
-            margin:  0 auto; /* Center the container horizontally */
+            margin: 0 auto; /* Center the container horizontally */
             display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
         }
+
         .sidebar1 {
-            flex-basis: 20%;
-            margin-right: 100px; /* Add margin to the sidebar */
+            flex-basis: 100%; /* Take full width on small screens */
+            margin-bottom: 20px; /* Add margin to the bottom */
         }
+
         .main-content1 {
-            flex-basis: 50%;
+            flex-basis: 100%; /* Take full width on small screens */
         }
-        .sidebar h2, .main-content h2 {
+
+        .sidebar h2,
+        .main-content h2 {
             color: black;
         }
-        .sidebar1 p, .main-content1 p {
+
+        .sidebar1 p,
+        .main-content1 p {
             color: black;
         }
+
         .sidebar1 ul {
             list-style-type: none;
             padding: 0;
         }
+
         .sidebar1 li {
             margin-bottom: 5px;
             background-color: #f0f0f0;
@@ -40,67 +49,85 @@
             padding: 8px 12px;
             cursor: pointer;
         }
+
         .sidebar1 li a {
             text-decoration: none;
             color: #333;
         }
+
         .sidebar1 li:hover {
             background-color: #e0e0e0;
+        }
+
+        /* Media Query for tablets */
+        @media (min-width: 768px) {
+            .container1 {
+                display: flex;
+            }
+
+            .sidebar1 {
+                flex-basis: 30%; /* Take 30% of the container */
+                margin-right: 20px; /* Add margin to the right */
+            }
+
+            .main-content1 {
+                flex-basis: calc(70% - 20px); /* Take 70% of the container minus margin */
+            }
         }
     </style>
 </head>
 
 <body>
 
-<?php include("nav.php"); ?>
+    <?php include("nav.php"); ?>
     <div class="container1">
         <div class="sidebar1">
-            <br></br>
+            <br>
             <h2>TOPIC</h2>
-            <br></br>
+            <br>
             <ul>
                 <?php
-                    // Include database connection file
-                    include_once("db.php");
+                // Include database connection file
+                include_once("db.php");
 
-                    // Fetch data from the database
-                    $sql = "SELECT * FROM cattle_db";
-                    $result = mysqli_query($conn, $sql);
+                // Fetch data from the database
+                $sql = "SELECT * FROM cattle_db";
+                $result = mysqli_query($conn, $sql);
 
-                    // Output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo "<li><a href='#' onclick=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
-                    }
+                // Output data of each row
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li><a href='#' onclick=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
+                }
                 ?>
             </ul>
         </div>
-        
-        <div class="main-content1" style="margin-top: 70px;">
-    <?php
-        // Reset the result pointer to the beginning
-        mysqli_data_seek($result, 0);
 
-        // Output data of each row
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "<div id='" . $row['section_id'] . "' style='display: none;'>";
-            echo "<h2>" . $row['section_name'] . "</h2>";
-            echo "<p>" . nl2br($row['content']) . "</p>";
-            
-            // Check if there is a video path available
-            if (!empty($row['video_path'])) {
-                echo "<video width='320' height='240' controls>";
-                echo "<source src='" . $row['video_path'] . "' type='video/mp4'>";
-                echo "Your browser does not support the video tag.";
-                echo "</video>";
+        <div class="main-content1">
+            <?php
+            // Reset the result pointer to the beginning
+            mysqli_data_seek($result, 0);
+
+            // Output data of each row
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<div id='" . $row['section_id'] . "' style='display: none;'>";
+                echo "<h2>" . $row['section_name'] . "</h2>";
+                echo "<p>" . nl2br($row['content']) . "</p>";
+
+                // Check if there is a video path available
+                if (!empty($row['video_path'])) {
+                    echo "<video width='100%' height='auto' controls>"; // Make the video responsive
+                    echo "<source src='" . $row['video_path'] . "' type='video/mp4'>";
+                    echo "Your browser does not support the video tag.";
+                    echo "</video>";
+                }
+
+                echo "</div>";
             }
-            
-            echo "</div>";
-        }
 
-        // Close database connection
-        mysqli_close($conn);
-    ?>
-</div>
+            // Close database connection
+            mysqli_close($conn);
+            ?>
+        </div>
 
     </div>
 
@@ -116,20 +143,10 @@
             document.getElementById(id).style.display = 'block';
         }
     </script>
-     
+
 </body>
 
-
 </html>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+<br><br><br><br><br><br><br><br><br><br> <!-- Add spacing for the footer -->
 
-
-<?php include ("footer.php");  ?>
+<?php include("footer.php"); ?>

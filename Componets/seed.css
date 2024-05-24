@@ -1,63 +1,43 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    text-align: center;
+    padding: 300px;
 }
 
 .calculator {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color:#ffff;
-    border-radius: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Increased width */
+    margin: 0 auto; /* Center the calculator horizontally */
+    padding: 90px;
 }
 
-h2 {
-    text-align: center;
-    color: #333;
-    font-size: xx-large;
-}
-
-form {
-    margin-bottom: 20px;
+h1 {
+    color: #333333;
 }
 
 label {
     display: block;
-    margin-bottom: 20px;
-    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
-input[type="text"],
+input[type="number"],
 select {
-    width: 100%;
+    width: 100%; /* Adjust width to fill the container */
     padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-bottom: 15px;
     box-sizing: border-box;
-    font-size: 16px;
-}
-
-select#crop {
-
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    height: 40px;
-    overflow-y: auto;
 }
 
 input[type="submit"] {
-    width: 100%;
+    width: 100%; /* Make button fill the container */
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
-    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -68,27 +48,17 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-p {
-    margin-top: 10px;
-    color: #333;
+.output {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust width for better fit */
+    margin: 20px auto; /* Center the output horizontally */
+    padding: 20px;
+    text-align: left;
 }
-
-button {
-    width: 100%;
-    background-color: #f44336; /* Red */
-    color: white;
-    padding: 12px 20px; /* Adjust padding as needed */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 5px;
-}
-
-button:hover {
-    background-color: #d32f2f; /* Darker red */
-}
-
-button:active {
-    background-color: #b71c1c; /* Even darker red */
+.calculator form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
