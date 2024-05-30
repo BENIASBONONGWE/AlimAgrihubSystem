@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/styles.css"> <!-- Ensure this path is correct -->
+  
     <style>
         body {
+            display: flex;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
@@ -20,6 +24,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
         h1 {
@@ -39,8 +44,15 @@
             justify-content: space-between;
         }
 
+        .weather-icon {
+            width: 30px; /* Adjust the width of the icons */
+            height: 30px; /* Adjust the height of the icons */
+            margin-left: 10px; /* Adjust the spacing between the weather data and the icon */
+            vertical-align: middle; /* Align the icons vertically with the weather data */
+        }
+
         .forecast {
-            width: calc(50% - 10px);
+            width: calc(60% - 10px);
             margin-bottom: 20px;
             padding: 20px;
             background-color: #f9f9f9;
@@ -83,6 +95,8 @@
     </div>
 
     <script>
+        // JavaScript code here
+
         function fetchWeatherData(latitude, longitude) {
             const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=c75c5b97361b0acfdcd04c629f2b96f2`;
 
@@ -117,6 +131,7 @@
 
                     const forecastElement = document.createElement('div');
                     forecastElement.classList.add('forecast');
+                    forecastElement.style.backgroundImage = `url('images/${getWeatherImage(forecast.weather[0].id)}')`;
                     forecastElement.innerHTML = `
                         <p class="summary" onclick="showWeatherDetails('${weatherDescription}', ${temperature}, ${humidity}, ${rainfall}, ${windSpeed}, ${windDirection})">${weatherDescription}</p>
                         <div class="details">
@@ -182,6 +197,30 @@
             }
 
             return { weatherDescription, farmingAdvice };
+        }
+
+        function getWeatherImage(weatherId) {
+            // Map weather conditions to image filenames
+            switch (true) {
+                case weatherId >= 200 && weatherId < 300:
+                    return 'thunderstorm.jpg';
+                case weatherId >= 300 && weatherId < 500:
+                    return 'light_rain.jpg';
+                case weatherId >= 500 && weatherId < 600:
+                    return 'rain_showers.jpg';
+                case weatherId >= 600 && weatherId < 700:
+                    return 'snowfall.jpg';
+                case weatherId >= 700 && weatherId < 800:
+                    return 'mist.jpg';
+                case weatherId === 800:
+                    return 'clear_sky.jpg';
+                case weatherId === 801 || weatherId === 802:
+                    return 'partly_cloudy.jpg';
+                case weatherId === 803 || weatherId === 804:
+                    return 'overcast.jpg';
+                default:
+                    return 'default.jpg';
+            }
         }
 
         function showWeatherDetails(weatherDescription, temperature, humidity, rainfall, windSpeed, windDirection) {

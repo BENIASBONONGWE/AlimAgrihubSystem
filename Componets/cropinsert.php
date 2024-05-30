@@ -27,7 +27,7 @@
         }
 
         .form-group {
-            margin-bottom: 30px; /* Increase the space between form groups */
+            margin-bottom: 20px; /* Increase the space between form groups */
         }
 
         label {
@@ -48,7 +48,7 @@
 <body>
 
 <h1>Crop Details</h1>
-<div class="container-fluid">
+<div class="container">
     <div class="container form-container">
         <form action="insert_crop.php" method="post">
             <div class="form-group">

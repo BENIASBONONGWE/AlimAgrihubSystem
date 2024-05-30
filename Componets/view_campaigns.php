@@ -1,5 +1,5 @@
 <?php
-include_once("db.php");
+ include_once("db.php");
 // Fetch campaigns from the database
 $sql = "SELECT * FROM campaigns";
 $result = $conn->query($sql);
@@ -13,13 +13,21 @@ $result = $conn->query($sql);
     <title>View Campaigns</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px; /* Add padding for better alignment */
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px; /* Adjusted max-width for larger screens */
+            margin: 0 auto; /* Center the content horizontally */
         }
 
         table {
-            width: 100%;
+            width: 100%; /* Make the table responsive */
             border-collapse: collapse;
+            margin-top: 20px; /* Add margin-top for spacing */
         }
 
         th, td {
@@ -42,23 +50,13 @@ $result = $conn->query($sql);
 
         h2 {
             text-align: center;
-            margin-top: 20px; /* Added margin for spacing */
-        }
-        
-        /* Adjustments for smaller screens */
-        @media screen and (max-width: 600px) {
-            table, th, td {
-                font-size: 14px; /* Reduce font size for better readability on smaller screens */
-            }
         }
     </style>
 </head>
 <body>
-    <div>
+    <div class="container">
+        <h2>Planned Campaigns</h2>
         <table>
-            <tr>
-                <th colspan="5"><h2>Planned Campaigns</h2></th>
-            </tr>
             <tr>
                 <th>ID</th>
                 <th>Campaign Type</th>
