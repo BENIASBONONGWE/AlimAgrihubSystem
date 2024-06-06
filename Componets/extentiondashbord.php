@@ -118,6 +118,7 @@
             <li><a href="adminposts.php" class="btn btn-primary">Education posts</a></li>
             <li><a href="plan_campaign.php" class="btn btn-primary">Plan Campaign</a></li>
             <li><a href="sendsms.php" class="btn btn-primary">Send SMS</a></li>
+            <li><a href="extensionworkeradd.php" class="btn btn-primary">add extension worker</a></li>
         </ul>
     </div>
     <div class="main-content">

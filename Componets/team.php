@@ -1,118 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google-like Weather Card</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<meta charset="UTF-8">
-    <title>Team Section | Za-Alimi agrihub</title>
-    <link rel="stylesheet" href="css/team.css">
+        .weather-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 320px;
+            text-align: center;
+            padding: 20px;
+        }
 
+        .weather-card .location {
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .weather-card .icon {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+        }
+
+        .weather-card .temperature {
+            font-size: 64px;
+            font-weight: 300;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .weather-card .description {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .weather-card .details {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .weather-card .details div {
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
-  <div class="team-wrapper">
-        <h2>Executive Team</h2>
-        <hr>
-        <div class="members">
-            <div class="team-mem">
-                <img src="images/robert.jpg">
-                <h4>Robert Kapininga</h4>
-                <p>Project Manager</p>
-                <div class="social-media">
-                    <a href="https://wwww.facebook.com/robert.makhatcha jnr">
-                        <div class="social-media-content">
-                            <img src="images/facebook.png">
-                            <p>@Robertmakhatchajnr</p>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/robertmakhatcha">
-                        <div class="social-media-content">
-                                <img src="images/instagram.png">
-                                <p>@robertmakhatcha</p>
-                        </div>
-                    </a>
-                    <a href="https://www.twitter.com/robertmakhatcha">
-                        <div class="social-media-content">
-                            <img src="images/twitter.png">
-                            <p>@robertmakhatcha</p>
-                        </div>
-                    </a>
-                </div>
+    <div class="weather-card">
+        <div class="location">San Francisco</div>
+        <img class="icon" src="https://www.example.com/weather-icon.png" alt="Weather Icon">
+        <div class="temperature">18°C</div>
+        <div class="description">Cloudy</div>
+        <div class="details">
+            <div>
+                <div>Humidity</div>
+                <div>72%</div>
             </div>
-            <div class="team-mem">
-                <img src="images/benias.jpg">
-                <h4>Benias Bonongwe</h4>
-                <p>Software - Engineer</p>
-                <div class="social-media">
-                    <a href="https://www.facebook.com/benias.bonongwe">
-                        <div class="social-media-content">
-                            <img src="images/facebook.png">
-                            <p>@Beniasbonongwe</p>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/shadie_khamba">
-                        <div class="social-media-content">
-                            <img src="images/instagram.png">
-                            <p>@Benias_bonongwe</p>
-                        </div>
-                    </a>
-                    <a href="https://www.twitter.com/benias_bonongwe">
-                        <div class="social-media-content">
-                            <img src="images/twitter.png">
-                            <p>@Benias_bonongwe</p>
-                        </div>
-                    </a>
-                </div>
+            <div>
+                <div>Wind</div>
+                <div>15 km/h</div>
             </div>
-            <div class="team-mem">
-                <img src="images/zapa.jpg">
-                <h4>Hope Kanyika </h4>
-                <p>Web Developer</p>
-                <div class="social-media">
-                    <a href="https://www.facebook.com/hope.kanyika">
-                        <div class="social-media-content">
-                            <img src="images/facebook.png">
-                            <p>@Hope_Kanyika</p>
-                        </div>
-                    </a>
-                    <a href="https://www.instagram.com/hope_kanyika">
-                        <div class="social-media-content">
-                            <img src="images/instagram.png">
-                            <p>@Hope_Kanyika</p>
-                        </div>
-                    </a>
-                    <a href="https://www.twitter.com/hope_kanyika">
-                        <div class="social-media-content">
-                            <img src="images/twitter.png">
-                            <p>@Hope_Kanyika</p>
-                        </div>
-                    </a>
-                </div>
+            <div>
+                <div>Precipitation</div>
+                <div>10%</div>
             </div>
-            <div class="team-mem">
-                <img src="images/anold.jpg">
-                <h4>Anold Kambia</h4>
-                <p>Content Writer</p>
-                <div class="social-media">
-                    <a href="https://www.facebook.com/anold.kambia">
-                        <div class="social-media-content">
-                            <img src="images/facebook.png">
-                            <p>@Anold_Kambia</p>
-                        </div>
-                    </a>
-                    <a href="www.instagram.com/robert_kapininga">
-                        <div class="social-media-content">
-                            <img src="images/instagram.png">
-                            <p>@AnoldKambia</p>
-                        </div>
-                    </a>
-                    <a href="www.twitter.com/anold_kambia">
-                        <div class="social-media-content">
-                            <img src="images/twitter.png">
-                            <p>@Anold_Kambia</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
         </div>
-</div>
+    </div>
 </body>
-        
-<?php include ("footer.php");  ?>
-
-
+</html>

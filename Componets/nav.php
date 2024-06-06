@@ -187,7 +187,7 @@
             <div></div>
             <div></div>
         </div>
-        <a href="extentiondashbord.php">Extension Workers login</a>
+        <a href="login.php">Extension Workers login</a>
         <a href="head.php">Weather</a>
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>
@@ -214,7 +214,7 @@
         <a class="logo" href="#">
             <img src="images/Logo.png" alt="Logo">
         </a>
-        <a href="extentiondashbord.php">Extension Workers login</a>
+        <a href="login.php">Extension Workers login</a>
         <a href="head.php">Weather</a>
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>

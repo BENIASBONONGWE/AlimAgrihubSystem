@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
-    <link rel="stylesheet" href="CSS/styles.css"> <!-- Ensure this path is correct -->
-  
     <style>
         body {
             display: flex;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
 
         .container {
@@ -22,19 +21,22 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
+            margin-top: 10px;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #333;
         }
 
         #city {
             text-align: center;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 500;
             margin-bottom: 20px;
         }
 
@@ -44,37 +46,53 @@
             justify-content: space-between;
         }
 
-        .weather-icon {
-            width: 30px; /* Adjust the width of the icons */
-            height: 30px; /* Adjust the height of the icons */
-            margin-left: 10px; /* Adjust the spacing between the weather data and the icon */
-            vertical-align: middle; /* Align the icons vertically with the weather data */
-        }
-
         .forecast {
-            width: calc(60% - 10px);
-            margin-bottom: 20px;
+            width: calc(100% - 40px);
+            margin: 10px auto;
             padding: 20px;
             background-color: #f9f9f9;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
-        }
-
-        .forecast p {
-            margin: 5px 0;
-        }
-
-        .summary {
             text-align: center;
-            font-weight: bold;
-            margin-bottom: 10px;
-            cursor: pointer; /* Add cursor pointer for clickable effect */
         }
 
-        .details {
+        .forecast .summary {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .forecast .date {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            
+            color: #555;
+        }
+
+        .forecast .icon {
+            width: 200px;
+            height: 100px;
+            margin: 0 auto 10px;
+        }
+
+        .forecast .temperature {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 10px 0;
+        }
+
+        .forecast .details {
+            display: flex;
+            justify-content: space-around;
             font-size: 14px;
+            color: #666;
+        }
+
+        .forecast .details div {
+            text-align: center;
         }
 
         @media (max-width: 600px) {
@@ -82,7 +100,6 @@
                 width: 100%;
             }
         }
-
     </style>
 </head>
 <body>
@@ -120,8 +137,9 @@
             if (weatherData) {
                 // Display the weather forecast for the next 5 hours
                 weatherData.list.slice(0, 5).forEach(forecast => {
-                    const date = forecast.dt_txt.split(' ')[0];
-                    const time = forecast.dt_txt.split(' ')[1];
+                    const dateTime = forecast.dt_txt.split(' ');
+                    const date = dateTime[0];
+                    const time = dateTime[1];
                     const { weatherDescription, farmingAdvice } = mapWeatherCondition(forecast.weather[0].id);
                     const temperature = forecast.main.temp;
                     const humidity = forecast.main.humidity;
@@ -131,22 +149,33 @@
 
                     const forecastElement = document.createElement('div');
                     forecastElement.classList.add('forecast');
-                    forecastElement.style.backgroundImage = `url('images/${getWeatherImage(forecast.weather[0].id)}')`;
                     forecastElement.innerHTML = `
-                        <p class="summary" onclick="showWeatherDetails('${weatherDescription}', ${temperature}, ${humidity}, ${rainfall}, ${windSpeed}, ${windDirection})">${weatherDescription}</p>
+                        <div class="date">${date} ${time}</div>
+                        <div class="summary">${weatherDescription}</div>
+                        <img class="icon" src="images/${getWeatherImage(forecast.weather[0].id)}" alt="${weatherDescription}">
+                        <div class="temperature">${temperature}°C</div>
                         <div class="details">
-                            <p>Date: ${date}</p>
-                            <p>Time: ${time}</p>
-                            <p>Temperature: ${temperature} °C</p>
-                            <p>Humidity: ${humidity} %</p>
-                            <p>Rainfall: ${rainfall} mm</p>
-                            <p>Wind Speed: ${windSpeed} m/s</p>
-                            <p>Wind Direction: ${windDirection}°</p>
-                            <p>Farming Advice: ${farmingAdvice}</p>
+                            <div>
+                                <div>Humidity</div>
+                                <div>${humidity}%</div>
+                            </div>
+                            <div>
+                                <div>Rainfall</div>
+                                <div>${rainfall} mm</div>
+                            </div>
+                            <div>
+                                <div>Wind</div>
+                                <div>${windSpeed} m/s</div>
+                            </div>
+                            <div>
+                                <div>Direction</div>
+                                <div>${windDirection}°</div>
+                            </div>
                         </div>
+                        <div>Farming Advice: ${farmingAdvice}</div>
                     `;
                     weatherInfoElement.appendChild(forecastElement);
-                });
+                })
             } else {
                 weatherInfoElement.innerHTML = '<p>Failed to retrieve weather data</p>';
             }
@@ -157,7 +186,6 @@
             let farmingAdvice;
 
             // Map OpenWeatherMap weather condition codes to descriptions and farming advice
-            // Adjust the descriptions and advice as needed
             switch (true) {
                 case weatherId >= 200 && weatherId < 300:
                     weatherDescription = 'Thunderstorms expected';
@@ -214,17 +242,13 @@
                     return 'mist.jpg';
                 case weatherId === 800:
                     return 'clear_sky.jpg';
-                case weatherId === 801 || weatherId === 802:
+                case weatherId === 801 || 802:
                     return 'partly_cloudy.jpg';
-                case weatherId === 803 || weatherId === 804:
+                case weatherId === 803 || 804:
                     return 'overcast.jpg';
                 default:
                     return 'default.jpg';
             }
-        }
-
-        function showWeatherDetails(weatherDescription, temperature, humidity, rainfall, windSpeed, windDirection) {
-            // Your pop-up message logic here
         }
 
         function sendDataToServer(data) {

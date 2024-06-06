@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($response === FALSE) {
             $_SESSION['message'] = 'Error occurred';
-            header('Location: index.html');
+            header('Location: home.php');
             exit();
         }
 
