@@ -1,3 +1,31 @@
+<?php
+session_start();
+include_once "db.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // Assuming you use prepared statements for security
+    $stmt = $conn->prepare("SELECT full_name FROM extension_workers WHERE email = ? AND password = ?");
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $stmt->store_result();
+    
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($full_name);
+        $stmt->fetch();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $email;
+        $_SESSION['full_name'] = $full_name; // Set full name in session
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        echo "Invalid email or password.";
+    }
+    $stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
