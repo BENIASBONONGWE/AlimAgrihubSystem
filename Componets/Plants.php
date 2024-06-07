@@ -135,24 +135,13 @@
             <h5>Land Preparation, Planting, Pests and Diseases, Harvesting, Varieties.</h5>
           </a>
 
-          <a href="groundnuts_details.php" class="animal">
-            <img src="images/Peanut.jpeg" alt="">
-            <h3>GROUNDNUTS</h3>
-            <h5>Land Preparation, Planting, Pests and Diseases, Harvesting, Varieties.</h5>
-          </a>
+         
 
           <a href="cassava_details.php" class="animal">
             <img src="images/Cassava.jpeg" alt="">
             <h3>CASSAVA</h3>
             <h5>Land Preparation, Planting, Pests and Diseases, Harvesting, Varieties.</h5>
           </a>
-
-          <a href="tea_details.php" class="animal">
-            <img src="images/tea.jpeg" alt="">
-            <h3>TEA</h3>
-            <h5>Land Preparation, Planting, Pests and Diseases, Harvesting, Varieties.</h5>
-          </a>
-
           <a href="irishpotataos_details.php" class="animal">
             <img src="images/Irish.jpeg" alt="">
             <h3>IRISH</h5>

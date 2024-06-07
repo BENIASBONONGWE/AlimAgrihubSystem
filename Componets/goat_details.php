@@ -25,8 +25,8 @@
             flex-basis: 100%; /* Take full width on small screens */
         }
 
-        .sidebar h2,
-        .main-content h2 {
+        .sidebar1 h2,
+        .main-content1 h2 {
             color: black;
         }
 
@@ -55,6 +55,11 @@
 
         .sidebar1 li:hover {
             background-color: #e0e0e0;
+        }
+
+        .main-content1 p {
+            max-width: 600px; /* Limit the width of the paragraphs */
+            word-wrap: break-word; /* Ensure text wraps within the limited width */
         }
 
         /* Media Query for tablets */

@@ -14,8 +14,9 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
+            background-color: #f9f9f9;
         }
 
         /* Styles for the top bar */
@@ -47,28 +48,30 @@
 
         /* Styles for the main navigation bar */
         .navbar {
-            background-color: #f0f0f0;
-            padding: 20px 50px;
+            background-color: #ffffff;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 50px;
             z-index: 999;
         }
 
         .navbar a {
-            color: black;
+            color: #333;
             text-decoration: none;
             padding: 10px 20px;
             font-size: 16px;
             font-weight: bold;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .navbar a:hover {
-            background-color: #e0e0e0;
+            background-color: #f0f0f0;
+            color: #066614;
         }
 
         .logo img {
@@ -82,9 +85,10 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             overflow-x: hidden;
-            transition: 0.3s;
+            transition: width 0.3s;
             padding-top: 60px;
             z-index: 1001;
         }
@@ -93,13 +97,14 @@
             padding: 10px 15px;
             text-decoration: none;
             font-size: 16px;
-            color: black;
+            color: #333;
             display: block;
-            transition: 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .sidebar a:hover {
-            background-color: #e0e0e0;
+            background-color: #f0f0f0;
+            color: #066614;
         }
 
         .menu-toggle {
