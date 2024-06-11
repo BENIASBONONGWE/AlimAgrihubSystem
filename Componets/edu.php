@@ -170,12 +170,12 @@ if (!empty($row['videos'])) {
         // Iterate over the fetched data and generate HTML for each card
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<div class='col-md-4 mb-4'>";
-            echo "<a href='" . $row['page'] . "' class='text-decoration-none'>";
+            echo "<a href='" . htmlspecialchars($row['page'], ENT_QUOTES, 'UTF-8') . "' class='text-decoration-none'>";
             echo "<div class='card-wrapper'>";
-            echo "<div style='background-image: url(" . $row['image_url'] . "); background-size: cover; height: 200px;'></div>";
+            echo "<div style='background-image: url(" . htmlspecialchars($row['image_url'], ENT_QUOTES, 'UTF-8') . "); background-size: cover; height: 200px;'></div>";
             echo "<div class='card-body' style='height: 150px; overflow: hidden;'>";
-            echo "<h3 class='card-title'>" . $row['title'] . "</h3>";
-            echo "<p class='card-text'>" . $row['description'] . "</p>";
+            echo "<h3 class='card-title'>" . htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8') . "</h3>";
+            echo "<p class='card-text'>" . htmlspecialchars($row['description'], ENT_QUOTES, 'UTF-8') . "</p>";
             echo "</div>"; // Close card-body
             echo "</div>"; // Close card-wrapper
             echo "</a>";
@@ -186,6 +186,7 @@ if (!empty($row['videos'])) {
     } else {
         echo "No data found";
     }
+    
 
     // Close the database connection
     mysqli_close($conn);

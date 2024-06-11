@@ -1,6 +1,12 @@
 <?php
 include_once "db.php";
 session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+    header("Location: extentiondashbord.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["profile_image"]["name"]);
@@ -9,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
 
     // Check if image file is an actual image or fake image
     $check = getimagesize($_FILES["profile_image"]["tmp_name"]);
-    if ($check !== false) {
+    if($check !== false) {
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -29,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
     }
 
     // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
@@ -37,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $target_file)) {
             $sql = "UPDATE extension_workers SET profile_image='$target_file' WHERE email='" . $_SESSION['email'] . "'";
@@ -51,10 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,10 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
             transition: background-color 0.3s;
         }
 
-        .sidebar ul li a:hover {
-            background-color: darkgreen;
-        }
-
         .main-content {
             flex-grow: 1;
             padding: 20px;
@@ -123,11 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
             .sidebar {
                 width: 200px;
             }
-
             .sidebar ul li {
                 margin: 10px 0;
             }
-
             .main-content {
                 padding: 10px;
             }
@@ -137,15 +136,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
             .sidebar {
                 width: 150px;
             }
-
             .sidebar h2 {
                 font-size: 1.2rem;
             }
-
             .sidebar ul li {
                 margin: 8px 0;
             }
-
             .main-content {
                 padding: 5px;
             }
@@ -177,17 +173,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
         });
     </script>
 </head>
-
 <body>
     <div class="sidebar">
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="livestockinsert.php" class="btn btn-primary">LiveStock</a></li>
-            <li><a href="cropinsert.php" class="btn btn-primary">Crop Section</a></li>
-            <li><a href="adminposts.php" class="btn btn-primary">Education Posts</a></li>
+            <li><a href="cropinsert.php" class="btn btn-primary">crop_section</a></li>
+            <li><a href="adminposts.php" class="btn btn-primary">Education posts</a></li>
             <li><a href="plan_campaign.php" class="btn btn-primary">Plan Campaign</a></li>
             <li><a href="sendsms.php" class="btn btn-primary">Send SMS</a></li>
-            <li><a href="extensionworkeradd.php" class="btn btn-primary">Add Extension Worker</a></li>
+            <li><a href="extensionworkeradd.php" class="btn btn-primary">add extension worker</a></li>
         </ul>
     </div>
     <div class="main-content">
@@ -198,5 +193,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_image'])) {
         </div>
     </div>
 </body>
-
 </html>

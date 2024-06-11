@@ -4,7 +4,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $api_url = "https://telcomw.com/api-v2/text/?";
     $message = urlencode($_POST['message']);
-    $api_key = "LM546JPA17UR5VPO3A0H";
+    $api_key = "SZBZCPONZSLTWHLJLIAP ";
     $password = urlencode("yamikani2000");
     $from = "WGIT";
 
