@@ -62,7 +62,7 @@
 <body>
     
     <div class="secondary-logo">
-            <img src="images/Logo1.png" alt="Another Logo" class="logo">
+    <img src="images/Logo.png" alt="Logo" class="logo" width="100" height="100">
         </div>
         <h2>Farmer Registration</h2>
     <form action="submit_registration.php" method="post">

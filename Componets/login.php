@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       font-size: 14px;
     }
     input[type="submit"] {
-      background-color: #007bff;
+      background-color: green;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -84,11 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       font-size: 14px;
     }
     input[type="submit"]:hover {
-      background-color: #0056b3;
+      background-color: green;
     }
     .register-link {
       text-decoration: none;
-      color: #007bff;
+      color: green;
       display: block;
       text-align: center;
       margin-top: 20px;

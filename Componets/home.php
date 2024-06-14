@@ -181,16 +181,16 @@
                 <div class="carousel-item">
                     <img src="images/happywomen.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h5>Discover The Products</h5>
-                        <p>Explore on Animal production</p>
+                        <h5 style="color:black;">Discover The Products</h5>
+                        <p  style="color:black;">Explore on Animal production</p>
                         <a href="animal.php" class="btn btn-brown">Discover More</a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/nice.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption">
-                        <h5>Contact Us</h5>
-                        <p>Get in touch with us for more information</p>
+                        <h5 style="color:black;">Contact Us</h5>
+                        <p style="color:black;">Get in touch with us for more information</p>
                         <a href="contactus.php" class="btn btn-brown">Discover More</a>
                     </div>
                 </div>

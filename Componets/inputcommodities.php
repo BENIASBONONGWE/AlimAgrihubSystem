@@ -93,6 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Commodity Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .btn.btn-primary {
+        background-color: green;
+        border-color: green; /* Optional: Change border color if needed */
+    }
+</style>
 </head>
 <body>
    

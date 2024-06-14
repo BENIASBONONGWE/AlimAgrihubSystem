@@ -18,8 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Establish database connection
-       $pdo = new PDO("mysql:host=localhost;dbname=phpland", "root", "");
-
+        $pdo = new PDO("mysql:host=localhost;dbname=phpland", "root", "");
 
         // Set PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -31,8 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$full_name, $phone, $hashed_password, $location, $farmer_type, $dob, $gender]);
 
         if ($stmt->rowCount() > 0) {
-            // Redirect to another page
-            header("Location: home.php");
+            // Redirect to the success page with user details
+            $query = http_build_query([
+                'full_name' => $full_name,
+                'phone' => $phone,
+                'location' => $location,
+                'farmer_type' => $farmer_type,
+                'dob' => $dob,
+                'gender' => $gender
+            ]);
+            header("Location: home.php?$query");
             exit(); // Make sure to stop further execution
         } else {
             echo "Error: Unable to create new record";

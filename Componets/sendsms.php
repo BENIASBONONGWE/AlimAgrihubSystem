@@ -78,31 +78,10 @@
 </head>
 <body>
     <div class="container">
+    
         <h2>Send SMS</h2>
         <form method="post" action="sms.php" id="smsForm">
-            <label for="weather_select">Select Weather:</label><br>
-            <select id="weather_select">
-                <option value="">Select Weather</option>
-            </select><br>
             
-            <label for="campaign_select">Select Campaign:</label><br>
-            <select id="campaign_select">
-                <option value="">Select Campaign</option>
-            </select><br>
-            
-            <label for="recipient_type">Select Recipient Type:</label><br>
-            <select id="recipient_type" name="recipient_type">
-                <option value="">Select Recipient Type</option>
-                <option value="all">All Farmers</option>
-                <option value="crop">Crop Farmers</option>
-                <option value="animal">Animal Farmers</option>
-                <option value="other">Other (Input Number)</option>
-            </select><br>
-            <div id="phone_dropdown">
-                <label for="phone">Select Recipient:</label><br>
-                <select id="phone_select" name="phone[]" multiple>
-                </select><br>
-            </div>
             <div id="phone_input">
                 <label for="phone">Enter Recipient's Phone Number:</label><br>
                 <input type="text" id="phone_input_text" name="phone_input" value="+265"><br>

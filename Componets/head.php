@@ -7,13 +7,32 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
         }
 
         .container {
@@ -24,7 +43,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
-            margin-top: 10px;
         }
 
         h1 {
@@ -68,12 +86,11 @@
             font-size: 20px;
             font-weight: 300;
             margin-bottom: 10px;
-            
             color: #555;
         }
 
         .forecast .icon {
-            width: 200px;
+            width: 100px;
             height: 100px;
             margin: 0 auto 10px;
         }
@@ -103,6 +120,12 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#weather">Weather</a>
+        <a href="#contact">Contact</a>
+    </div>
+
     <div class="container">
         <h1>Weather Forecast</h1>
         <div id="city">Locating...</div>
@@ -112,21 +135,24 @@
     </div>
 
     <script>
-        // JavaScript code here
-
         function fetchWeatherData(latitude, longitude) {
-            const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=c75c5b97361b0acfdcd04c629f2b96f2`;
+            const apiKey = '8f5169d74da04b208ad203824241306';
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`;
 
             fetch(apiUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    const cityElement = document.getElementById('city');
-                    cityElement.textContent = `City: ${data.city.name}, ${data.city.country}`;
+                    document.getElementById('city').textContent = `City: ${data.location.name}, ${data.location.country}`;
                     displayWeatherForecast(data);
-                    sendDataToServer(data); // Send data to PHP script
                 })
                 .catch(error => {
                     console.error('Error fetching weather data:', error);
+                    document.getElementById('city').textContent = 'Failed to retrieve weather data';
                 });
         }
 
@@ -135,143 +161,76 @@
             weatherInfoElement.innerHTML = ''; // Clear previous content
 
             if (weatherData) {
-                // Display the weather forecast for the next 5 hours
-                weatherData.list.slice(0, 5).forEach(forecast => {
-                    const dateTime = forecast.dt_txt.split(' ');
-                    const date = dateTime[0];
-                    const time = dateTime[1];
-                    const { weatherDescription, farmingAdvice } = mapWeatherCondition(forecast.weather[0].id);
-                    const temperature = forecast.main.temp;
-                    const humidity = forecast.main.humidity;
-                    const rainfall = forecast.rain ? forecast.rain['3h'] : 0;
-                    const windSpeed = forecast.wind.speed;
-                    const windDirection = forecast.wind.deg;
-
-                    const forecastElement = document.createElement('div');
-                    forecastElement.classList.add('forecast');
-                    forecastElement.innerHTML = `
-                        <div class="date">${date} ${time}</div>
-                        <div class="summary">${weatherDescription}</div>
-                        <img class="icon" src="images/${getWeatherImage(forecast.weather[0].id)}" alt="${weatherDescription}">
-                        <div class="temperature">${temperature}°C</div>
-                        <div class="details">
-                            <div>
-                                <div>Humidity</div>
-                                <div>${humidity}%</div>
-                            </div>
-                            <div>
-                                <div>Rainfall</div>
-                                <div>${rainfall} mm</div>
-                            </div>
-                            <div>
-                                <div>Wind</div>
-                                <div>${windSpeed} m/s</div>
-                            </div>
-                            <div>
-                                <div>Direction</div>
-                                <div>${windDirection}°</div>
-                            </div>
+                const forecastElement = document.createElement('div');
+                forecastElement.classList.add('forecast');
+                forecastElement.innerHTML = `
+                    <div class="date">${weatherData.location.localtime}</div>
+                    <div class="summary">${weatherData.current.condition.text}</div>
+                    <img class="icon" src="${weatherData.current.condition.icon}" alt="${weatherData.current.condition.text}">
+                    <div class="temperature">${weatherData.current.temp_c}°C</div>
+                    <div class="details">
+                        <div>
+                            <div>Humidity</div>
+                            <div>${weatherData.current.humidity}%</div>
                         </div>
-                        <div>Farming Advice: ${farmingAdvice}</div>
-                    `;
-                    weatherInfoElement.appendChild(forecastElement);
-                })
+                        <div>
+                            <div>Wind</div>
+                            <div>${weatherData.current.wind_kph} kph</div>
+                        </div>
+                        <div>
+                            <div>Direction</div>
+                            <div>${weatherData.current.wind_dir}</div>
+                        </div>
+                    </div>
+                    <div>Animal Advice: ${getAnimalAdvice(weatherData.current.condition.code)}</div>
+                    <div>Crop Advice: ${getCropAdvice(weatherData.current.condition.code)}</div>
+                `;
+                weatherInfoElement.appendChild(forecastElement);
             } else {
                 weatherInfoElement.innerHTML = '<p>Failed to retrieve weather data</p>';
             }
         }
 
-        function mapWeatherCondition(weatherId) {
-            let weatherDescription;
-            let farmingAdvice;
-
-            // Map OpenWeatherMap weather condition codes to descriptions and farming advice
+        function getAnimalAdvice(weatherCode) {
             switch (true) {
-                case weatherId >= 200 && weatherId < 300:
-                    weatherDescription = 'Thunderstorms expected';
-                    farmingAdvice = 'Heavy rain expected today. Avoid outdoor activities and secure livestock and equipment.';
-                    break;
-                case weatherId >= 300 && weatherId < 500:
-                    weatherDescription = 'Light rain expected';
-                    farmingAdvice = 'Light rain expected today. No significant impact on farming activities.';
-                    break;
-                case weatherId >= 500 && weatherId < 600:
-                    weatherDescription = 'Rain showers expected';
-                    farmingAdvice = 'Rain showers expected today. Consider protecting crops and outdoor equipment.';
-                    break;
-                case weatherId >= 600 && weatherId < 700:
-                    weatherDescription = 'Snowfall expected';
-                    farmingAdvice = 'Snowfall expected today. Take precautions to protect crops and livestock from the cold.';
-                    break;
-                case weatherId >= 700 && weatherId < 800:
-                    weatherDescription = 'Mist or fog expected';
-                    farmingAdvice = 'Mist or fog expected today. Be cautious when working outdoors, visibility may be low.';
-                    break;
-                case weatherId === 800:
-                    weatherDescription = 'Clear skies';
-                    farmingAdvice = 'Clear skies today. Ideal conditions for farming activities.';
-                    break;
-                case weatherId === 801 || weatherId === 802:
-                    weatherDescription = 'Partly cloudy skies';
-                    farmingAdvice = 'Partly cloudy skies today. No significant impact on farming activities.';
-                    break;
-                case weatherId === 803 || weatherId === 804:
-                    weatherDescription = 'Overcast skies';
-                    farmingAdvice = 'Overcast skies today. Monitor weather updates for any changes.';
-                    break;
+                case weatherCode >= 200 && weatherCode < 300:
+                    return 'Secure livestock indoors and avoid outdoor activities.';
+                case weatherCode >= 300 && weatherCode < 500:
+                    return 'Animals can remain outside but monitor for signs of stress.';
+                case weatherCode >= 500 && weatherCode < 600:
+                    return 'Ensure shelter is available for all animals.';
+                case weatherCode >= 600 && weatherCode < 700:
+                    return 'Provide extra feed and shelter to protect from cold.';
+                case weatherCode >= 700 && weatherCode < 800:
+                    return 'Limit animal movement due to low visibility.';
+                case weatherCode === 800:
+                    return 'Ideal conditions for grazing.';
+                case weatherCode > 800:
+                    return 'Monitor weather updates for potential changes.';
                 default:
-                    weatherDescription = 'Weather conditions expected';
-                    farmingAdvice = 'Weather conditions expected. Monitor weather updates for farming planning.';
-            }
-
-            return { weatherDescription, farmingAdvice };
-        }
-
-        function getWeatherImage(weatherId) {
-            // Map weather conditions to image filenames
-            switch (true) {
-                case weatherId >= 200 && weatherId < 300:
-                    return 'thunderstorm.jpg';
-                case weatherId >= 300 && weatherId < 500:
-                    return 'light_rain.jpg';
-                case weatherId >= 500 && weatherId < 600:
-                    return 'rain_showers.jpg';
-                case weatherId >= 600 && weatherId < 700:
-                    return 'snowfall.jpg';
-                case weatherId >= 700 && weatherId < 800:
-                    return 'mist.jpg';
-                case weatherId === 800:
-                    return 'clear_sky.jpg';
-                case weatherId === 801 || 802:
-                    return 'partly_cloudy.jpg';
-                case weatherId === 803 || 804:
-                    return 'overcast.jpg';
-                default:
-                    return 'default.jpg';
+                    return 'General advice based on weather conditions.';
             }
         }
 
-        function sendDataToServer(data) {
-            const xhr = new XMLHttpRequest();
-            const url = 'send_weather_data.php';
-            const jsonData = JSON.stringify(data);
-
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-
-            xhr.onload = function () {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    console.log('Data sent successfully');
-                } else {
-                    console.error('Failed to send data');
-                }
-            };
-
-            xhr.onerror = function () {
-                console.error('Network Error');
-            };
-
-            xhr.send(jsonData);
+        function getCropAdvice(weatherCode) {
+            switch (true) {
+                case weatherCode >= 200 && weatherCode < 300:
+                    return 'Delay planting and protect seedlings from heavy rain.';
+                case weatherCode >= 300 && weatherCode < 500:
+                    return 'No significant impact, regular monitoring required.';
+                case weatherCode >= 500 && weatherCode < 600:
+                    return 'Protect crops from rain and potential flooding.';
+                case weatherCode >= 600 && weatherCode < 700:
+                    return 'Take measures to prevent frost damage to crops.';
+                case weatherCode >= 700 && weatherCode < 800:
+                    return 'Monitor crops for fungal diseases due to humidity.';
+                case weatherCode === 800:
+                    return 'Optimal conditions for most farming activities.';
+                case weatherCode > 800:
+                    return 'Prepare for potential adverse weather conditions.';
+                default:
+                    return 'General advice based on weather conditions.';
+            }
         }
 
         function getLocation() {
@@ -282,11 +241,11 @@
                     fetchWeatherData(latitude, longitude);
                 }, error => {
                     console.error('Error getting user location:', error);
-                    document.getElementById('weatherInfo').innerHTML = '<p>Location access denied. Please allow location access to view weather forecast.</p>';
+                    document.getElementById('city').textContent = 'Location access denied. Please allow location access to view weather forecast.';
                 });
             } else {
                 console.error('Geolocation is not supported by this browser');
-                document.getElementById('weatherInfo').innerHTML = '<p>Geolocation is not supported by this browser. Please use a different browser to view weather forecast.</p>';
+                document.getElementById('city').textContent = 'Geolocation is not supported by this browser. Please use a different browser to view weather forecast.';
             }
         }
 
