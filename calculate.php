@@ -17,6 +17,48 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  h1 {
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label, input, select {
+    margin: 10px 0;
+  }
+  input[type="submit"] {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  input[type="submit"]:hover {
+    background-color: darkgreen;
+  }
+  .result {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .result p {
+    font-size: 1.1em;
+  }
+  .result ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .result ul li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
 </style>
 </head>
@@ -56,6 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     "chicken" => array(  // Breakdown for chicken
       "type" => "Malawi Black",
       "daily_feed_grams" => 100, // Grams per day
+      "maize_bran_percent" => 89,
+      "soybean_meal_percent" => 10.75,
+      "salt_percent" => 0.25,
       "grains_energy" => 60,
       "proteins" => 25,
       "vitamins_minerals" => 15,
@@ -73,31 +118,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $average_daily_feed_kg = ($feed_info["body_weight"] * $feed_info["daily_feed_percentage"]) / 100;
     }
     
-    $total_feed_days = 7; // Number of days for the calculation
+    $total_feed_days = 1; // Only for a single day
 
     $total_feed_kg = $animal_count * $average_daily_feed_kg * $total_feed_days;
 
+    echo "<div class='result'>";
     echo "<h2>Results</h2>";
     echo "<p>Number of Animals: $animal_count</p>";
     echo "<p>Animal Type: " . $feed_info["type"] . "</p>"; // Use the defined type from the array
 
     // Display feed composition based on animal type
     if ($animal_type == "chicken") {
+      $maize_bran_kg = ($feed_info["maize_bran_percent"] / 100) * $total_feed_kg;
+      $soybean_meal_kg = ($feed_info["soybean_meal_percent"] / 100) * $total_feed_kg;
+      $salt_kg = ($feed_info["salt_percent"] / 100) * $total_feed_kg;
+
       echo "<p>Feed Composition:</p>";
       echo "<ul>";
-      echo "<li>Grains and Energy Source: " . $feed_info["grains_energy"] . "%</li>";
-      echo "<li>Proteins: " . $feed_info["proteins"] . "%</li>";
-      echo "<li>Vitamins and Minerals: " . $feed_info["vitamins_minerals"] . "%</li>";
+      echo "<li><strong>Maize Bran:</strong> " . round($maize_bran_kg, 2) . " kg ({$feed_info["maize_bran_percent"]}%)</li>";
+      echo "<li><strong>Soybean Meal:</strong> " . round($soybean_meal_kg, 2) . " kg ({$feed_info["soybean_meal_percent"]}%)</li>";
+      echo "<li><strong>Salt:</strong> " . round($salt_kg, 2) . " kg ({$feed_info["salt_percent"]}%)</li>";
       echo "</ul>";
+      echo "<p><strong>Total Feed Required:</strong> " . round($total_feed_kg, 2) . " kg for 1 day</p>";
     } else {
       $concentrate_kg = ($total_feed_kg * $feed_info["concentrate"]) / 100;
       $roughage_kg = ($total_feed_kg * $feed_info["roughage"]) / 100;
 
-      echo "<p>Concentrate: " . $concentrate_kg . " kg</p>";
-      echo "<p>Roughage: " . $roughage_kg . " kg</p>";
+      echo "<p><strong>Concentrate:</strong> " . round($concentrate_kg, 2) . " kg</p>";
+      echo "<p><strong>Roughage:</strong> " . round($roughage_kg, 2) . " kg</p>";
+      echo "<p><strong>Total Feed Required:</strong> " . round($total_feed_kg, 2) . " kg for 1 day</p>";
     }
-
-    echo "<p>Total Feed Required: " . $total_feed_kg . " kg</p>";
+    echo "</div>";
   } else {
     echo "<p>Error: Invalid animal type.</p>";
   }
