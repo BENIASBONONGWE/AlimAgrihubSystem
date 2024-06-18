@@ -149,6 +149,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "<p><strong>Total Feed Required:</strong> " . round($total_feed_kg, 2) . " kg for 1 day</p>";
     }
     echo "</div>";
+
+    // Generate a filename based on timestamp
+    $filename = 'feed_calculation_' . date('YmdHis') . '.txt';
+    // Create content for download
+    $content = "Animal Feed Calculation Results\n\n";
+    $content .= "Number of Animals: $animal_count\n";
+    $content .= "Animal Type: " . $feed_info["type"] . "\n";
+
+    // Additional content based on animal type
+    if ($animal_type == "chicken") {
+      // Include specific details for chickens
+      $content .= "Feed Composition:\n";
+      $content .= "- Maize Bran: " . round($maize_bran_kg, 2) . " kg ({$feed_info["maize_bran_percent"]}%)\n";
+      $content .= "- Soybean Meal: " . round($soybean_meal_kg, 2) . " kg ({$feed_info["soybean_meal_percent"]}%)\n";
+      $content .= "- Salt: " . round($salt_kg, 2) . " kg ({$feed_info["salt_percent"]}%)\n";
+    } else {
+      // Include details for other animals
+      $content .= "Concentrate: " . round($concentrate_kg, 2) . " kg\n";
+      $content .= "Roughage: " . round($roughage_kg, 2) . " kg\n";
+    }
+
+    $content .= "Total Feed Required: " . round($total_feed_kg, 2) . " kg for 1 day\n";
+
+    // Save content to a file
+    file_put_contents($filename, $content);
+
+    // Provide download link
+    echo "<p><a href='$filename' download>Download Results</a></p>";
   } else {
     echo "<p>Error: Invalid animal type.</p>";
   }
