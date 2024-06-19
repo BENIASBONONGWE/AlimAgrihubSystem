@@ -1,0 +1,7 @@
+Animal Feed Calculation Results
+
+Number of Animals: 2
+Animal Type: Malawi Zebu
+Dry Matter Feed: 16.25 kg
+Water Intake: 90 liters
+Total Feed Required: 16.25 kg for 1 day

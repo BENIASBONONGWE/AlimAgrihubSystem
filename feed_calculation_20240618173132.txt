@@ -1,0 +1,7 @@
+Animal Feed Calculation Results
+
+Number of Animals: 1
+Animal Type: Large White
+Concentrate: 3.15 kg
+Roughage: 1.35 kg
+Total Feed Required: 4.5 kg for 1 day

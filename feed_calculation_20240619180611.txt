@@ -1,0 +1,7 @@
+Animal Feed Calculation Results
+
+Number of Animals: 100
+Animal Type: Large White
+Dry Matter Feed: 1237.5 kg
+Water Intake: 3000 liters
+Total Feed Required: 1237.5 kg for 1 day

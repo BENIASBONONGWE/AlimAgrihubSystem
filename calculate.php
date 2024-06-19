@@ -76,24 +76,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $feed_composition = array(
     "cattle" => array(
       "type" => "Malawi Zebu",
-      "body_weight" => 250, // Average weight in kg
-      "daily_feed_percentage" => 2.25, // Average daily feed intake as a percentage of body weight
-      "concentrate" => 30, // Percentage of concentrate in feed
-      "roughage" => 70,   // Percentage of roughage in feed
+      "body_weight" => 325, // Average weight in kg
+      "daily_feed_min_percentage" => 2, // Minimum daily feed intake as a percentage of body weight
+      "daily_feed_max_percentage" => 3, // Maximum daily feed intake as a percentage of body weight
+      "water_intake_min" => 30, // Minimum water intake in liters
+      "water_intake_max" => 60, // Maximum water intake in liters
     ),
     "goat" => array(
       "type" => "Boer",
-      "body_weight" => 50, // Adjusted weight for example
-      "daily_feed_percentage" => 3,
-      "concentrate" => 70,
-      "roughage" => 30,
+      "body_weight" => 80, // Average weight in kg
+      "daily_feed_min_percentage" => 3, // Minimum daily feed intake as a percentage of body weight
+      "daily_feed_max_percentage" => 4, // Maximum daily feed intake as a percentage of body weight
+      "water_intake_min" => 4, // Minimum water intake in liters
+      "water_intake_max" => 10, // Maximum water intake in liters
     ),
     "pig" => array(
       "type" => "Large White",
-      "body_weight" => 100, // Average weight in kg
-      "daily_feed_percentage" => 4.5, // Average daily feed intake as a percentage of body weight
-      "concentrate" => 70,
-      "roughage" => 30,
+      "body_weight" => 275, // Average weight in kg
+      "daily_feed_min_percentage" => 4, // Minimum daily feed intake as a percentage of body weight
+      "daily_feed_max_percentage" => 5, // Maximum daily feed intake as a percentage of body weight
+      "water_intake_min" => 20, // Minimum water intake in liters
+      "water_intake_max" => 40, // Maximum water intake in liters
     ),
     "chicken" => array(  // Breakdown for chicken
       "type" => "Malawi Black",
@@ -114,6 +117,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Calculate total feed amount in kilograms
     if ($animal_type == "chicken") {
       $average_daily_feed_kg = $feed_info["daily_feed_grams"] / 1000; // Convert grams to kg
+    } else if ($animal_type == "cattle" || $animal_type == "goat" || $animal_type == "pig") {
+      $daily_feed_min_kg = ($feed_info["body_weight"] * $feed_info["daily_feed_min_percentage"]) / 100;
+      $daily_feed_max_kg = ($feed_info["body_weight"] * $feed_info["daily_feed_max_percentage"]) / 100;
+      $average_daily_feed_kg = ($daily_feed_min_kg + $daily_feed_max_kg) / 2; // Average feed requirement
     } else {
       $average_daily_feed_kg = ($feed_info["body_weight"] * $feed_info["daily_feed_percentage"]) / 100;
     }
@@ -140,6 +147,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "<li><strong>Salt:</strong> " . round($salt_kg, 2) . " kg ({$feed_info["salt_percent"]}%)</li>";
       echo "</ul>";
       echo "<p><strong>Total Feed Required:</strong> " . round($total_feed_kg, 2) . " kg for 1 day</p>";
+    } else if ($animal_type == "cattle" || $animal_type == "goat" || $animal_type == "pig") {
+      $water_intake_min_liters = $animal_count * $feed_info["water_intake_min"];
+      $water_intake_max_liters = $animal_count * $feed_info["water_intake_max"];
+      $average_water_intake_liters = ($water_intake_min_liters + $water_intake_max_liters) / 2; // Average water intake
+      
+      echo "<p><strong>Dry Matter Feed:</strong> " . round($total_feed_kg, 2) . " kg</p>";
+      echo "<p><strong>Water Intake:</strong> " . round($average_water_intake_liters, 2) . " liters</p>";
     } else {
       $concentrate_kg = ($total_feed_kg * $feed_info["concentrate"]) / 100;
       $roughage_kg = ($total_feed_kg * $feed_info["roughage"]) / 100;
@@ -164,6 +178,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $content .= "- Maize Bran: " . round($maize_bran_kg, 2) . " kg ({$feed_info["maize_bran_percent"]}%)\n";
       $content .= "- Soybean Meal: " . round($soybean_meal_kg, 2) . " kg ({$feed_info["soybean_meal_percent"]}%)\n";
       $content .= "- Salt: " . round($salt_kg, 2) . " kg ({$feed_info["salt_percent"]}%)\n";
+    } else if ($animal_type == "cattle" || $animal_type == "goat" || $animal_type == "pig") {
+      // Include details for cattle, goats, and pigs
+      $content .= "Dry Matter Feed: " . round($total_feed_kg, 2) . " kg\n";
+      $content .= "Water Intake: " . round($average_water_intake_liters, 2) . " liters\n";
     } else {
       // Include details for other animals
       $content .= "Concentrate: " . round($concentrate_kg, 2) . " kg\n";

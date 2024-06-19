@@ -1,0 +1,9 @@
+Animal Feed Calculation Results
+
+Number of Animals: 1
+Animal Type: Large White
+Feed Composition:
+- Maize Grain: 7.43 kg
+Dry Matter Feed: 12.38 kg
+Water Intake: 30 liters
+Total Feed Required: 12.38 kg for 1 day

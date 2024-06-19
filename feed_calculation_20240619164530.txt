@@ -1,0 +1,7 @@
+Animal Feed Calculation Results
+
+Number of Animals: 7
+Animal Type: Malawi Zebu
+Concentrate: 11.81 kg
+Roughage: 27.56 kg
+Total Feed Required: 39.38 kg for 1 day

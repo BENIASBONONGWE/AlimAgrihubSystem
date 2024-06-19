@@ -1,0 +1,7 @@
+Animal Feed Calculation Results
+
+Number of Animals: 7
+Animal Type: Boer
+Concentrate: 7.35 kg
+Roughage: 3.15 kg
+Total Feed Required: 10.5 kg for 1 day

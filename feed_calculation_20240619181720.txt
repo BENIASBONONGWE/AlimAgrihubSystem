@@ -1,0 +1,9 @@
+Animal Feed Calculation Results
+
+Number of Animals: 1
+Animal Type: Malawi Black
+Feed Composition:
+- Maize Bran: 0.09 kg (89%)
+- Soybean Meal: 0.01 kg (10.75%)
+- Salt: 0 kg (0.25%)
+Total Feed Required: 0.1 kg for 1 day
