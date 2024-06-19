@@ -59,6 +59,8 @@
         }
     </style>
 </head>
+
+<?php include ("nav.php"); ?>
 <body>
     <div class="container">
         <h2>Add Extension Worker</h2>
@@ -77,3 +79,4 @@
     </div>
 </body>
 </html>
+<?php include ("footer.php");  ?>

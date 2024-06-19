@@ -45,6 +45,8 @@
         }
     </style>
 </head>
+
+<?php include ("nav.php"); ?>
 <body>
 
 <h1>Crop Details</h1>
@@ -87,3 +89,4 @@
 
 </body>
 </html>
+<?php include ("footer.php");  ?>

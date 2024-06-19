@@ -62,6 +62,8 @@
         }
     </style>
 </head>
+
+<?php include ("nav.php"); ?>
 <body>
     <div>
         <h2>Plan Campaign</h2>
@@ -83,3 +85,4 @@
     </div>
 </body>
 </html>
+<?php include ("footer.php");  ?>

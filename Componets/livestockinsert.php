@@ -45,6 +45,8 @@
         }
     </style>
 </head>
+
+<?php include ("nav.php"); ?>
 <body>
 
 
@@ -86,3 +88,4 @@
 
 </body>
 </html>
+<?php include ("footer.php");  ?>

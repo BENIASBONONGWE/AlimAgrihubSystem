@@ -100,6 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
     }
 </style>
 </head>
+
+<?php include ("nav.php"); ?>
 <body>
    
     <div class="container mt-5">
@@ -141,3 +143,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['place_order'])) {
   
 </body>
 </html>
+<?php include ("footer.php");  ?>

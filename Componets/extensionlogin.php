@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password is correct
             echo "Login successful!";
             // Redirect to the dashboard or home page
-            header("Location: extentiondashbord.php");
+            header("Location: admin_dashboard.php");
             exit;
         } else {
             // Invalid email or password

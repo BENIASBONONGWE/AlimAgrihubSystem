@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $email;
         $_SESSION['full_name'] = $full_name; // Set full name in session
-        header("Location: dashboard.php");
+        header("Location: admin_dashboard.php");
         exit();
     } else {
         echo "Invalid email or password.";

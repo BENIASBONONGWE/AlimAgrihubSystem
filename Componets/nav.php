@@ -193,10 +193,10 @@
             <div></div>
         </div>
         <a href="login.php">Extension Workers login</a>
-        <a href="head.php">Weather</a>
+        <a href="weather.php">Weather</a>
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>
-        <a href="index.php">Seed Calculator</a>
+        <a href="seedcalculator.php">Seed Calculator</a>
         <a href="feedform.php">Feed Calculator</a>
     </div>
 
@@ -211,7 +211,7 @@
             <a href="edu.php">FARMERS HANDBOOK</a>
             <a href="animal.php">LIVESTOCKS</a>
             <a href="Plants.php">CROPS</a>
-            <a href="agritrading.php">AGRITRADING</a>
+            
         </div>
     </div>
 
@@ -220,10 +220,10 @@
             <img src="images/Logo.png" alt="Logo">
         </a>
         <a href="login.php">Extension Workers login</a>
-        <a href="head.php">Weather</a>
+        <a href="weather.php">Weather</a>
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>
-        <a href="index.php">Seed Calculator</a>
+        <a href="seedcalculator.php">Seed Calculator</a>
         <a href="feedform.php">Feed Calculator</a>
         <a href="home.php">HOME</a>
         <a href="contactus.php">CONTACT US</a>
@@ -231,7 +231,7 @@
         <a href="edu.php">FARMERS HANDBOOK</a>
         <a href="animal.php">LIVESTOCKS</a>
         <a href="Plants.php">CROPS</a>
-        <a href="agritrading.php">AGRITRADING</a>
+        
     </div>
 
     <script>
