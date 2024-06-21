@@ -84,7 +84,7 @@ try {
             box-sizing: border-box;
         }
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: green;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -93,7 +93,7 @@ try {
             width: 100%;
         }
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: green;
         }
         .error {
             color: red;
@@ -121,6 +121,8 @@ try {
 </head>
 
 <?php include ("nav.php"); ?>
+<br>
+<br>
 <body>
 <div class="container">
     <h2>Send SMS</h2>
@@ -158,8 +160,9 @@ try {
             <input type="text" id="phone_input_text" name="phone_input" value=""><br>
         </div>
         <div>
-            <label for="location">Select Location:</label><br>
-            <select id="location" name="location">
+            <label for="location">Select Locations:</label><br>
+            <select id="location" name="locations[]" multiple>
+                <option value="all">Select All Locations</option>
                 <?php
                 // Output options for each location
                 foreach ($phoneByLocation as $loc => $phones) {
@@ -169,8 +172,9 @@ try {
             </select><br>
         </div>
         <div>
-            <label for="campaign">Select Campaign:</label><br>
-            <select id="campaign" name="campaign">
+            <label for="campaign">Select Campaigns:</label><br>
+            <select id="campaign" name="campaigns[]" multiple>
+                <option value="all">Select All Campaigns</option>
                 <?php
                 // Output options for each campaign
                 foreach ($campaigns as $campaignId => $campaignDetails) {
@@ -196,35 +200,49 @@ try {
     document.addEventListener('DOMContentLoaded', function() {
         // JavaScript code to update phone number input based on location selection
         document.getElementById('location').addEventListener('change', function() {
-            var location = this.value;
+            var selectedLocations = Array.from(this.selectedOptions).map(option => option.value);
             var phoneNumbers = <?php echo json_encode($phoneByLocation); ?>;
-
-            if (phoneNumbers[location] && phoneNumbers[location].length > 0) {
-                var formattedNumbers = phoneNumbers[location].map(function(phone) {
-                    // Remove leading zeros and prepend +265
-                    return "+265" + phone.replace(/^0+/, '');
-                });
-                document.getElementById('phone_input_text').value = formattedNumbers.join(', ');
-            } else {
-                document.getElementById('phone_input_text').value = '';
-            }
+            var allNumbers = selectedLocations.reduce((acc, loc) => {
+                if (loc === 'all') {
+                    // If "Select All" is selected, add all phone numbers
+                    Object.values(phoneNumbers).forEach(numbers => acc.push(...numbers.map(phone => "+265" + phone.replace(/^0+/, ''))));
+                } else if (phoneNumbers[loc] && phoneNumbers[loc].length > 0) {
+                    var formattedNumbers = phoneNumbers[loc].map(phone => "+265" + phone.replace(/^0+/, ''));
+                    acc.push(...formattedNumbers);
+                }
+                return acc;
+            }, []);
+            document.getElementById('phone_input_text').value = allNumbers.join(', ');
         });
 
         // JavaScript code to handle the change event on the campaign dropdown
         document.getElementById('campaign').addEventListener('change', function() {
-            var campaignSelect = this;
-            var selectedOption = campaignSelect.options[campaignSelect.selectedIndex];
-
-            // Fetch data attributes from selected option
-            var description = selectedOption.getAttribute('data-description');
-            var targetAudience = selectedOption.getAttribute('data-target-audience');
-            var scheduledDate = selectedOption.getAttribute('data-scheduled-date');
-
+            var selectedCampaigns = Array.from(this.selectedOptions).map(option => {
+                if (option.value === 'all') {
+                    return Object.values(document.getElementById('campaign').options).map(opt => {
+                        return {
+                            text: opt.text,
+                            description: opt.getAttribute('data-description'),
+                            targetAudience: opt.getAttribute('data-target-audience'),
+                            scheduledDate: opt.getAttribute('data-scheduled-date')
+                        };
+                    });
+                }
+                return {
+                    text: option.text,
+                    description: option.getAttribute('data-description'),
+                    targetAudience: option.getAttribute('data-target-audience'),
+                    scheduledDate: option.getAttribute('data-scheduled-date')
+                };
+            }).flat();
+            
             // Construct message based on campaign details
-            var message = "Campaign Type: " + campaignSelect.options[campaignSelect.selectedIndex].text + "\n" +
-                          "Description: " + description + "\n" +
-                          "Target Audience: " + targetAudience + "\n" +
-                          "Scheduled Date: " + scheduledDate;
+            var message = selectedCampaigns.map(campaign => {
+                return "Campaign Type: " + campaign.text + "\n" +
+                       "Description: " + campaign.description + "\n" +
+                       "Target Audience: " + campaign.targetAudience + "\n" +
+                       "Scheduled Date: " + campaign.scheduledDate;
+            }).join("\n\n");
 
             // Update the message textarea
             document.getElementById('message').value = message;

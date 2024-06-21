@@ -197,7 +197,7 @@
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>
         <a href="seedcalculator.php">Seed Calculator</a>
-        <a href="feedform.php">Feed Calculator</a>
+        <a href="feedcalculator.php">Feed Calculator</a>
     </div>
 
     <div class="navbar">
@@ -224,7 +224,7 @@
         <a href="halo.php">Campaigns</a>
         <a href="farmer_register.php">Farmer Registration</a>
         <a href="seedcalculator.php">Seed Calculator</a>
-        <a href="feedform.php">Feed Calculator</a>
+        <a href="feedcalculator.php">Feed Calculator</a>
         <a href="home.php">HOME</a>
         <a href="contactus.php">CONTACT US</a>
         <a href="about.php">ABOUT</a>

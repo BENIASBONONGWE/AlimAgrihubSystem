@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,8 +92,12 @@
         include_once("db.php");
         $sql = "SELECT * FROM cattle_db";
         $result = mysqli_query($conn, $sql);
+        $first_section_id = '';
         while ($row = mysqli_fetch_assoc($result)) {
-          echo "<li><a href='#' onclick=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
+          if ($first_section_id === '') {
+            $first_section_id = $row['section_id'];
+          }
+          echo "<li><a href='#' onmouseover=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
         }
         ?>
       </ul>
@@ -142,6 +144,14 @@
       });
       document.getElementById(id).style.display = 'block';
     }
+
+    // Automatically show the first section when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+      var firstSectionId = "<?php echo $first_section_id; ?>";
+      if (firstSectionId) {
+        showContent(firstSectionId);
+      }
+    });
   </script>
   <?php include("footer.php"); ?>
 </body>

@@ -204,42 +204,48 @@ session_start();
         }
 
         function displayWeatherForecast(weatherData) {
-            const weatherInfoElement = document.getElementById('weatherInfo');
-            weatherInfoElement.innerHTML = ''; // Clear previous content
+    const weatherInfoElement = document.getElementById('weatherInfo');
+    weatherInfoElement.innerHTML = ''; // Clear previous content
 
-            if (weatherData && weatherData.forecast && weatherData.forecast.forecastday) {
-                weatherData.forecast.forecastday.forEach(day => {
-                    const forecastElement = document.createElement('div');
-                    forecastElement.classList.add('forecast');
-                    forecastElement.innerHTML = `
-                        <div class="date">${day.date}</div>
-                        <div class="summary">${day.day.condition.text}</div>
-                        <img class="icon" src="${day.day.condition.icon}" alt="${day.day.condition.text}">
-                        <div class="temperature">${day.day.avgtemp_c}°C</div>
-                        <div class="details">
-                            <div>
-                                <div>Humidity</div>
-                                <div>${day.day.avghumidity}%</div>
-                            </div>
-                            <div>
-                                <div>Wind</div>
-                                <div>${day.day.maxwind_kph} kph</div>
-                            </div>
-                            <div>
-                                <div>Chance of Rain</div>
-                                <div>${day.day.daily_chance_of_rain}%</div>
-                            </div>
-                        </div>
-                        <div class="description">
-                            <p>${getWeatherDescription(day)}</p>
-                        </div>
-                    `;
-                    weatherInfoElement.appendChild(forecastElement);
-                });
-            } else {
-                weatherInfoElement.innerHTML = '<p>Failed to retrieve weather data</p>';
-            }
-        }
+    if (weatherData && weatherData.forecast && weatherData.forecast.forecastday) {
+        const locationName = weatherData.location.name; // Get location name
+
+        weatherData.forecast.forecastday.forEach(day => {
+            const forecastElement = document.createElement('div');
+            forecastElement.classList.add('forecast');
+            forecastElement.innerHTML = `
+                <div class="date">${day.date}</div>
+                <div class="summary">${day.day.condition.text}</div>
+                <img class="icon" src="${day.day.condition.icon}" alt="${day.day.condition.text}">
+                <div class="temperature">${day.day.avgtemp_c}°C</div>
+                <div class="details">
+                    <div>
+                        <div>Humidity</div>
+                        <div>${day.day.avghumidity}%</div>
+                    </div>
+                    <div>
+                        <div>Wind</div>
+                        <div>${day.day.maxwind_kph} kph</div>
+                    </div>
+                    <div>
+                        <div>Chance of Rain</div>
+                        <div>${day.day.daily_chance_of_rain}%</div>
+                    </div>
+                </div>
+                <div class="description">
+                    <p>${getWeatherDescription(day)}</p>
+                </div>
+                <div class="location">
+                    <p>Location: ${locationName}</p>
+                </div>
+            `;
+            weatherInfoElement.appendChild(forecastElement);
+        });
+    } else {
+        weatherInfoElement.innerHTML = '<p>Failed to retrieve weather data</p>';
+    }
+}
+
 
         function getWeatherDescription(day) {
             const weatherCode = day.day.condition.code;
@@ -268,30 +274,32 @@ session_start();
         }
 
         function generateSummaryActionPlan(weatherData) {
-            const summaryActionPlanElement = document.getElementById('summaryText');
-            summaryActionPlanElement.innerHTML = ''; // Clear previous content
+    const summaryActionPlanElement = document.getElementById('summaryText');
+    summaryActionPlanElement.innerHTML = ''; // Clear previous content
 
-            let summaryText = '';
+    let summaryText = '';
 
-            const forecast = weatherData.forecast.forecastday;
-            let actionPlan = '<p>Summary Action Plan for the upcoming week:</p><ul>';
+    const locationName = weatherData.location.name; // Get location name
 
-            // Analyze the weather forecast data and generate a summary action plan
-            forecast.forEach(day => {
-                const weatherDescription = getWeatherDescription(day);
-                const summaryDate = day.date;
+    const forecast = weatherData.forecast.forecastday;
+    let actionPlan = `<p>Summary Action Plan for ${locationName} for the upcoming week:</p><ul>`;
 
-                actionPlan += `<li><strong>${summaryDate}:</strong> ${weatherDescription}</li>`;
-            });
+    // Analyze the weather forecast data and generate a summary action plan
+    forecast.forEach(day => {
+        const weatherDescription = getWeatherDescription(day);
+        const summaryDate = day.date;
 
-            actionPlan += '</ul>';
-            summaryText += actionPlan;
+        actionPlan += `<li><strong>${summaryDate}:</strong> ${weatherDescription}</li>`;
+    });
 
-            summaryActionPlanElement.innerHTML = summaryText;
+    actionPlan += '</ul>';
+    summaryText += actionPlan;
 
-            // Save summary action plan in the session
-            saveSummaryActionPlan(summaryText);
-        }
+    summaryActionPlanElement.innerHTML = summaryText;
+
+    // Save summary action plan in the session
+    saveSummaryActionPlan(summaryText);
+}
 
         function saveSummaryActionPlan(summary) {
             $.ajax({

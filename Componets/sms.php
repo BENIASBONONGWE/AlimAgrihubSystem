@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Store success message in session
     $_SESSION['message'] = 'Message sent successfully!';
+    echo "Message sent successfully!";
     header('Location: admin_dashboard.php');
     exit();
 } else {

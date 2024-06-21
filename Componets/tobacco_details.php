@@ -94,7 +94,7 @@
         $sql = "SELECT * FROM tobacco_db";
                     $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
-          echo "<li><a href='#' onclick=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
+          echo "<li><a href='#' onmouseover=\"showContent('" . $row['section_id'] . "'); return false;\">" . $row['section_name'] . "</a></li>";
         }
         ?>
       </ul>

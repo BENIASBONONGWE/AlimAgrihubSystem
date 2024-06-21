@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaigns and Awerenesses</title>
+    <title>Campaigns and Awareness</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,8 +15,13 @@
         .header {
             background-color: green;
             color: #fff;
-            padding: 20px;
+            padding: 60px;
             text-align: center;
+        }
+
+        .header h1 {
+            margin: 0; /* Ensure no default margins affect the header */
+            word-wrap: break-word; /* Allow long words to break into new lines */
         }
 
         .container {
@@ -62,9 +67,9 @@
     </style>
 </head>
 <body>
-
+<?php include("nav.php"); ?>
 <div class="header">
-    <h1>Campaigns and Awerenesses</h1>
+    <h1>Campaigns and Awareness</h1>
 </div>
 
 <div class="container">
@@ -96,6 +101,8 @@
     $conn->close();
     ?>
 </div>
+
+<?php include("footer.php"); ?>
 
 </body>
 </html>
